@@ -101,6 +101,74 @@
       </tags>
   </entry>
   <entry>
+    <title>sqlmap工具</title>
+    <url>/2021/11/12/sqlmap%E5%B7%A5%E5%85%B7/</url>
+    <content><![CDATA[<h2 id="SQLmap："><a href="#SQLmap：" class="headerlink" title="SQLmap："></a><strong>SQLmap：</strong></h2><p><strong>SQLmap参数：</strong></p>
+<p>-u  URL=URL目标URL</p>
+<p>-r 通过文本来进行探测（抓取数据复制到文本）</p>
+<p>-g Google dork将Google dork结果处理为目标URL</p>
+<p>–data=DATA 通过POST发送的数据字符串（例如“id=1”）</p>
+<p>–cookie=cookie HTTP cookie头值（例如“PHPSESSID=a8d127e..”）</p>
+<p> –random-agent  随机代理使用随机选择的HTTP用户代理头值</p>
+<p> –proxy=PROXY  代理使用代理连接到目标URL</p>
+<p> –level=LEVEL  要执行的测试级别（1-5，默认为1）</p>
+<p>(指定Level进行探测爆破(不加等级时，默认1,最高是5):</p>
+<p>level 1 (不添加时默认)</p>
+<p>level 2 (测试HTTP和cookie)</p>
+<p>level 3 (测试HTTP user-agent/referer)</p>
+<p>不确定payload或那个参数是注入点</p>
+<p>用越高的level探测，时间相对也会长）</p>
+<p> –risk=RISK 风险=执行测试的风险（1-3，默认值1）</p>
+<p> -b, –banner         标题检索DBMS标题</p>
+<p>–second-url          重定第二个网页</p>
+<p> –current-user      当前用户检索DBMS当前用户</p>
+<p> –current-db         当前数据库检索DBMS当前数据库</p>
+<p> –passwords        密码枚举DBMS用户密码哈希</p>
+<p> –tables                表枚举DBMS数据库表</p>
+<p> –columns            列枚举DBMS数据库表列</p>
+<p> –schema             模式枚举DBMS模式</p>
+<p> –dump                 转储DBMS数据库表项</p>
+<p> –dump-all            转储所有转储所有DBMS数据库表条目</p>
+<p> -D DB                  要枚举的D DB DBMS数据库</p>
+<p> -T TBL                 要枚举的TBL DBMS数据库表</p>
+<p> -C COL                要枚举的C列DBMS数据库表列</p>
+<p> –os-shell             用于交互式操作系统外壳的os外壳提示符</p>
+<p> –os-pwn              提示输入OOB外壳、流量计或VNC</p>
+<p> –batch                 批处理从不要求用户输入，请使用默认行为</p>
+<p><strong>SQLmap基本使用：</strong></p>
+<p>指定网页进行注入点探测</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：sqlmap -u <span class="token string">'URL'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<img src="C:\Users\Joker\AppData\Roaming\Typora\typora-user-images\image-20211112093228640.png" alt="image-20211112093228640" style="zoom: 80%;" />
+
+<p>列出当前所有的库</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：sqlmap -u <span class="token string">'URL'</span> --dbs  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<img src="C:\Users\Joker\AppData\Roaming\Typora\typora-user-images\image-20211112095909984.png" alt="image-20211112095909984" style="zoom: 80%;" />
+
+<p>列出当前选中库的表</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：sqlmap -u <span class="token string">'URL'</span> -D <span class="token string">'库'</span> --tables<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<img src="C:\Users\Joker\AppData\Roaming\Typora\typora-user-images\image-20211112102011501.png" alt="image-20211112102011501"  />
+
+<p>列出当前选中表和库的字段</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：sqlmap -u <span class="token string">'URL'</span> -D <span class="token string">'库'</span> -T <span class="token string">'表'</span> --columns<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<img src="C:\Users\Joker\AppData\Roaming\Typora\typora-user-images\image-20211112102540679.png" alt="image-20211112102540679" style="zoom: 80%;" />
+
+<p>列出当前选中表，库，字段的记录</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：sqlmap -u <span class="token string">'URL'</span> -D <span class="token string">'库'</span> -T ‘表’ -C ‘字段’ --dump<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="C:\Users\Joker\AppData\Roaming\Typora\typora-user-images\image-20211112102818436.png" alt="image-20211112102818436"></p>
+]]></content>
+      <categories>
+        <category>渗透</category>
+      </categories>
+      <tags>
+        <tag>渗透工具</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Msfvenom</title>
     <url>/2021/11/15/Msfvenom/</url>
     <content><![CDATA[<h2 id="Msfvenom"><a href="#Msfvenom" class="headerlink" title="Msfvenom"></a>Msfvenom</h2><p>Msfvenom参数：</p>
@@ -272,74 +340,6 @@
 <p>nmap -p3306 –script=mysql-empty-password.nse IP地址 扫描ROOT空口令</p>
 <p>nmap -p3306 –script=mysql-users.nse –script-args=mysqluser=root IP地址 列出所有mysql用户]</p>
 <p>nmap -sV –script=telnet-brute IP地址 telnet破解</p>
-]]></content>
-      <categories>
-        <category>渗透</category>
-      </categories>
-      <tags>
-        <tag>渗透工具</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>sqlmap工具</title>
-    <url>/2021/11/12/sqlmap%E5%B7%A5%E5%85%B7/</url>
-    <content><![CDATA[<h2 id="SQLmap："><a href="#SQLmap：" class="headerlink" title="SQLmap："></a><strong>SQLmap：</strong></h2><p><strong>SQLmap参数：</strong></p>
-<p>-u  URL=URL目标URL</p>
-<p>-r 通过文本来进行探测（抓取数据复制到文本）</p>
-<p>-g Google dork将Google dork结果处理为目标URL</p>
-<p>–data=DATA 通过POST发送的数据字符串（例如“id=1”）</p>
-<p>–cookie=cookie HTTP cookie头值（例如“PHPSESSID=a8d127e..”）</p>
-<p> –random-agent  随机代理使用随机选择的HTTP用户代理头值</p>
-<p> –proxy=PROXY  代理使用代理连接到目标URL</p>
-<p> –level=LEVEL  要执行的测试级别（1-5，默认为1）</p>
-<p>(指定Level进行探测爆破(不加等级时，默认1,最高是5):</p>
-<p>level 1 (不添加时默认)</p>
-<p>level 2 (测试HTTP和cookie)</p>
-<p>level 3 (测试HTTP user-agent/referer)</p>
-<p>不确定payload或那个参数是注入点</p>
-<p>用越高的level探测，时间相对也会长）</p>
-<p> –risk=RISK 风险=执行测试的风险（1-3，默认值1）</p>
-<p> -b, –banner         标题检索DBMS标题</p>
-<p>–second-url          重定第二个网页</p>
-<p> –current-user      当前用户检索DBMS当前用户</p>
-<p> –current-db         当前数据库检索DBMS当前数据库</p>
-<p> –passwords        密码枚举DBMS用户密码哈希</p>
-<p> –tables                表枚举DBMS数据库表</p>
-<p> –columns            列枚举DBMS数据库表列</p>
-<p> –schema             模式枚举DBMS模式</p>
-<p> –dump                 转储DBMS数据库表项</p>
-<p> –dump-all            转储所有转储所有DBMS数据库表条目</p>
-<p> -D DB                  要枚举的D DB DBMS数据库</p>
-<p> -T TBL                 要枚举的TBL DBMS数据库表</p>
-<p> -C COL                要枚举的C列DBMS数据库表列</p>
-<p> –os-shell             用于交互式操作系统外壳的os外壳提示符</p>
-<p> –os-pwn              提示输入OOB外壳、流量计或VNC</p>
-<p> –batch                 批处理从不要求用户输入，请使用默认行为</p>
-<p><strong>SQLmap基本使用：</strong></p>
-<p>指定网页进行注入点探测</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：sqlmap -u <span class="token string">'URL'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<img src="C:\Users\Joker\AppData\Roaming\Typora\typora-user-images\image-20211112093228640.png" alt="image-20211112093228640" style="zoom: 80%;" />
-
-<p>列出当前所有的库</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：sqlmap -u <span class="token string">'URL'</span> --dbs  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<img src="C:\Users\Joker\AppData\Roaming\Typora\typora-user-images\image-20211112095909984.png" alt="image-20211112095909984" style="zoom: 80%;" />
-
-<p>列出当前选中库的表</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：sqlmap -u <span class="token string">'URL'</span> -D <span class="token string">'库'</span> --tables<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<img src="C:\Users\Joker\AppData\Roaming\Typora\typora-user-images\image-20211112102011501.png" alt="image-20211112102011501"  />
-
-<p>列出当前选中表和库的字段</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：sqlmap -u <span class="token string">'URL'</span> -D <span class="token string">'库'</span> -T <span class="token string">'表'</span> --columns<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<img src="C:\Users\Joker\AppData\Roaming\Typora\typora-user-images\image-20211112102540679.png" alt="image-20211112102540679" style="zoom: 80%;" />
-
-<p>列出当前选中表，库，字段的记录</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：sqlmap -u <span class="token string">'URL'</span> -D <span class="token string">'库'</span> -T ‘表’ -C ‘字段’ --dump<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><img src="C:\Users\Joker\AppData\Roaming\Typora\typora-user-images\image-20211112102818436.png" alt="image-20211112102818436"></p>
 ]]></content>
       <categories>
         <category>渗透</category>
