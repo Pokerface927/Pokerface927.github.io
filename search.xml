@@ -384,7 +384,7 @@ pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
 <li><p>设置windows远程时用户非活动会话链接应小于等于五分钟</p>
 <ul>
 <li>用户配置-&gt;管理面板-&gt;Windows组件-&gt;远程桌面服务-&gt;远程桌面会话主机-&gt;会话时间限制-&gt;设置活动但空闲的远程桌面服务会话的时间限制（启用并设置五分钟）</li>
-<li><img src="/images/w7.png"></li>
+<li><img src="/images/w7.jpg"></li>
 </ul>
 </li>
 <li><p>对windows服务器进行远程管理安全性SSL加固，防止敏感信息泄露被监听</p>
@@ -417,5 +417,10 @@ pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
       <tags>
         <tag>安全策略</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>iptables</title>
+    <url>/2021/11/18/iptables/</url>
+    <content><![CDATA[]]></content>
   </entry>
 </search>
